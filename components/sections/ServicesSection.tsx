@@ -24,8 +24,8 @@ const services = [
     advantages: ["Harga terjangkau", "Kapasitas besar", "Tracking real-time"],
     coverage: "Seluruh Pulau Jawa & Sumatera",
     eta: "1-5 hari kerja",
-    color: "from-red-600 to-red-800",
-    glow: "rgba(220, 38, 38, 0.3)",
+    iconBg: "bg-red-50",
+    iconColor: "text-brand-red",
   },
   {
     icon: Ship,
@@ -34,8 +34,8 @@ const services = [
     advantages: ["Antar pulau", "Volume besar", "Biaya efisien"],
     coverage: "Seluruh Indonesia",
     eta: "3-14 hari kerja",
-    color: "from-blue-500 to-blue-700",
-    glow: "rgba(59, 130, 246, 0.3)",
+    iconBg: "bg-blue-50",
+    iconColor: "text-brand-blue",
   },
   {
     icon: Plane,
@@ -44,8 +44,8 @@ const services = [
     advantages: ["Paling cepat", "Aman & terjamin", "Seluruh Indonesia"],
     coverage: "Seluruh Bandara Indonesia",
     eta: "1-2 hari kerja",
-    color: "from-purple-500 to-purple-700",
-    glow: "rgba(168, 85, 247, 0.3)",
+    iconBg: "bg-red-50",
+    iconColor: "text-brand-red",
   },
   {
     icon: Zap,
@@ -54,8 +54,8 @@ const services = [
     advantages: ["Hari yang sama", "Prioritas utama", "Konfirmasi langsung"],
     coverage: "Jabodetabek & Kota Besar",
     eta: "Hari yang sama",
-    color: "from-yellow-500 to-red-600",
-    glow: "rgba(234, 179, 8, 0.3)",
+    iconBg: "bg-blue-50",
+    iconColor: "text-brand-blue",
   },
   {
     icon: Clock,
@@ -64,8 +64,8 @@ const services = [
     advantages: ["Garansi tepat waktu", "Prioritas tinggi", "Asuransi penuh"],
     coverage: "Seluruh Indonesia",
     eta: "1-3 hari kerja",
-    color: "from-red-500 to-red-700",
-    glow: "rgba(239, 68, 68, 0.3)",
+    iconBg: "bg-red-50",
+    iconColor: "text-brand-red",
   },
   {
     icon: Warehouse,
@@ -74,8 +74,8 @@ const services = [
     advantages: ["Gudang modern", "Sistem digital", "Keamanan 24/7"],
     coverage: "Jakarta, Surabaya, Medan",
     eta: "Fleksibel",
-    color: "from-green-500 to-green-700",
-    glow: "rgba(34, 197, 94, 0.3)",
+    iconBg: "bg-blue-50",
+    iconColor: "text-brand-blue",
   },
   {
     icon: Home,
@@ -84,8 +84,8 @@ const services = [
     advantages: ["Jemput di lokasi", "Antar ke tujuan", "Tanpa repot"],
     coverage: "Area Layanan Kami",
     eta: "Sesuai layanan",
-    color: "from-teal-500 to-teal-700",
-    glow: "rgba(20, 184, 166, 0.3)",
+    iconBg: "bg-red-50",
+    iconColor: "text-brand-red",
   },
   {
     icon: MapPin,
@@ -94,8 +94,8 @@ const services = [
     advantages: ["Real-time update", "Notifikasi otomatis", "Riwayat lengkap"],
     coverage: "Semua Layanan",
     eta: "Real-time",
-    color: "from-red-600 to-blue-700",
-    glow: "rgba(220, 38, 38, 0.3)",
+    iconBg: "bg-blue-50",
+    iconColor: "text-brand-blue",
   },
 ];
 
@@ -108,23 +108,20 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       initial={{ opacity: 0, y: 40 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="service-card rounded-2xl p-6 group cursor-pointer"
-      style={{
-        "--glow-color": service.glow,
-      } as React.CSSProperties}
+      className="bg-white rounded-2xl border border-slate-200 p-6 group cursor-pointer hover:shadow-[0_12px_48px_rgba(15,23,42,0.12)] hover:-translate-y-1.5 transition-all duration-300"
     >
       {/* Icon */}
-      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-        <service.icon className="w-7 h-7 text-white" />
+      <div className={`w-14 h-14 rounded-2xl ${service.iconBg} flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300`}>
+        <service.icon className={`w-7 h-7 ${service.iconColor}`} />
       </div>
 
       {/* Title */}
-      <h3 className="font-sora font-bold text-xl text-white mb-3 group-hover:text-red-500 transition-colors duration-300">
+      <h3 className="font-sora font-bold text-xl text-slate-900 mb-3 group-hover:text-brand-red transition-colors duration-300">
         {service.title}
       </h3>
 
       {/* Description */}
-      <p className="text-gray-400 text-sm leading-relaxed mb-5">
+      <p className="text-slate-600 text-sm leading-relaxed mb-5">
         {service.description}
       </p>
 
@@ -132,21 +129,21 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <div className="space-y-2 mb-5">
         {service.advantages.map((adv) => (
           <div key={adv} className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
-            <span className="text-gray-300 text-sm">{adv}</span>
+            <CheckCircle className="w-4 h-4 text-brand-red flex-shrink-0" />
+            <span className="text-slate-700 text-sm">{adv}</span>
           </div>
         ))}
       </div>
 
       {/* Meta */}
-      <div className="flex items-center justify-between pt-4 border-t border-white/5">
+      <div className="flex items-center justify-between pt-4 border-t border-slate-200">
         <div>
-          <div className="text-gray-500 text-xs">Coverage</div>
-          <div className="text-white text-xs font-medium">{service.coverage}</div>
+          <div className="text-slate-500 text-xs">Coverage</div>
+          <div className="text-slate-900 text-xs font-medium">{service.coverage}</div>
         </div>
         <div className="text-right">
-          <div className="text-gray-500 text-xs">Estimasi</div>
-          <div className="text-red-500 text-xs font-semibold">{service.eta}</div>
+          <div className="text-slate-500 text-xs">Estimasi</div>
+          <div className="text-brand-red text-xs font-semibold">{service.eta}</div>
         </div>
       </div>
 
@@ -154,7 +151,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full mt-4 py-2.5 rounded-xl border border-red-600/30 text-red-500 text-sm font-medium flex items-center justify-center gap-2 hover:bg-red-600/10 transition-all duration-300 opacity-0 group-hover:opacity-100"
+        className="w-full mt-4 py-2.5 rounded-xl border-2 border-brand-red text-brand-red text-sm font-medium flex items-center justify-center gap-2 hover:bg-brand-red hover:text-white transition-all duration-300 opacity-0 group-hover:opacity-100"
       >
         <Link href="/contact" className="flex items-center gap-2 w-full justify-center">
           Konsultasi Sekarang
@@ -169,15 +166,7 @@ export default function ServicesSection() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section id="services" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-
-      {/* Glow orbs */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
-
+    <section id="services" className="py-24 relative overflow-hidden bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
@@ -187,15 +176,14 @@ export default function ServicesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <Truck className="w-4 h-4 text-red-500" />
-            <span className="text-red-500 text-sm font-medium">Layanan Kami</span>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-red-50 text-brand-red text-xs font-semibold tracking-wide uppercase mb-4 border border-red-100">
+            Layanan Kami
           </div>
-          <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-4">
+          <h2 className="font-sora font-black text-4xl sm:text-5xl text-slate-900 mb-4">
             Solusi Pengiriman{" "}
-            <span className="gradient-text">Lengkap</span>
+            <span className="text-brand-red">Lengkap</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-slate-600 text-lg max-w-2xl mx-auto">
             Dari cargo darat hingga udara, kami menyediakan solusi logistik komprehensif untuk semua kebutuhan bisnis Anda.
           </p>
         </motion.div>
@@ -214,7 +202,7 @@ export default function ServicesSection() {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-center mt-12"
         >
-          <p className="text-gray-400 mb-4">Butuh solusi khusus untuk bisnis Anda?</p>
+          <p className="text-slate-600 mb-4">Butuh solusi khusus untuk bisnis Anda?</p>
           <Link href="/contact">
             <motion.span
               whileHover={{ scale: 1.05 }}

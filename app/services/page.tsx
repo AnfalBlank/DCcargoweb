@@ -45,16 +45,16 @@ const servicesFAQs = [
 export default function ServicesPage() {
   return (
     <>
-      <div className="pt-24 pb-8 relative overflow-hidden animated-bg">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="pt-24 pb-10 relative overflow-hidden bg-brand-navy">
+        <div className="absolute inset-0 grid-pattern opacity-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <span className="text-red-500 text-sm font-medium">Layanan Kami</span>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-4">
+            <span className="text-white/80 text-xs font-semibold tracking-wide uppercase">Layanan Kami</span>
           </div>
           <h1 className="font-sora font-black text-4xl sm:text-5xl text-white mb-3">
             Solusi Pengiriman <span className="gradient-text">Lengkap</span>
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-white/60 text-lg max-w-2xl mx-auto">
             Dari cargo darat hingga udara, kami siap melayani semua kebutuhan logistik Anda.
           </p>
         </div>

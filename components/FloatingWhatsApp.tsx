@@ -38,7 +38,7 @@ export default function FloatingWhatsApp() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
             transition={{ type: "spring", stiffness: 300, damping: 25 }}
-            className="glass-dark border border-green-500/30 rounded-2xl p-5 w-72 shadow-2xl"
+            className="bg-white border border-green-200 rounded-2xl p-5 w-72 shadow-card-lg"
           >
             {/* Header */}
             <div className="flex items-center gap-3 mb-4">
@@ -46,7 +46,7 @@ export default function FloatingWhatsApp() {
                 <Image src="/cs.png" alt="CS DC Cargo" width={40} height={40} className="object-cover w-full h-full" />
               </div>
               <div>
-                <div className="text-white font-semibold text-sm">DC Cargo — CS</div>
+                <div className="text-slate-700 font-semibold text-sm">DC Cargo — CS</div>
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   <span className="text-green-400 text-xs">Online sekarang</span>
@@ -54,15 +54,15 @@ export default function FloatingWhatsApp() {
               </div>
               <button
                 onClick={() => setIsOpen(false)}
-                className="ml-auto text-gray-500 hover:text-white transition-colors"
+                className="ml-auto text-slate-400 hover:text-slate-700 transition-colors"
               >
                 <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Message bubble */}
-            <div className="bg-white/5 rounded-xl p-3 mb-4">
-              <p className="text-gray-300 text-sm leading-relaxed">
+            <div className="bg-slate-50 rounded-xl p-3 mb-4">
+              <p className="text-slate-600 text-sm leading-relaxed">
                 👋 Halo! Ada yang bisa kami bantu? Kami siap melayani kebutuhan pengiriman cargo Anda ke seluruh Indonesia.
               </p>
             </div>

@@ -36,7 +36,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="font-poppins bg-navy-950 text-white antialiased">
+      <body className="font-poppins bg-white text-slate-900 antialiased">
         <Navbar />
         <main className="pb-16 md:pb-0">
           {children}

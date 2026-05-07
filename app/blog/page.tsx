@@ -39,16 +39,16 @@ const blogFAQs = [
 export default function BlogPage() {
   return (
     <>
-      <div className="pt-24 pb-8 relative overflow-hidden animated-bg">
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+      <div className="pt-24 pb-10 relative overflow-hidden bg-brand-navy">
+        <div className="absolute inset-0 grid-pattern opacity-10" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <span className="text-red-500 text-sm font-medium">Blog & Berita</span>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-white/10 border border-white/20 mb-4">
+            <span className="text-white/80 text-xs font-semibold tracking-wide uppercase">Blog & Berita</span>
           </div>
           <h1 className="font-sora font-black text-4xl sm:text-5xl text-white mb-3">
             Insight <span className="gradient-text">Logistik</span>
           </h1>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-white/60 text-lg max-w-2xl mx-auto">
             Tips, panduan, dan berita terkini seputar dunia logistik dan pengiriman cargo.
           </p>
         </div>

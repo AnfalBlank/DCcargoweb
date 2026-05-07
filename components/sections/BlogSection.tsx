@@ -16,7 +16,7 @@ const articles = [
     date: "5 Mei 2026",
     readTime: "5 menit",
     featured: true,
-    gradient: "from-red-600 to-red-700",
+    gradient: "from-red-600 to-red-800",
     icon: Package,
     tags: ["Pengemasan", "Fragile", "Tips"],
   },
@@ -28,7 +28,7 @@ const articles = [
     date: "3 Mei 2026",
     readTime: "7 menit",
     featured: false,
-    gradient: "from-blue-500 to-purple-600",
+    gradient: "from-blue-700 to-blue-900",
     icon: Truck,
     tags: ["Perbandingan", "Moda Pengiriman"],
   },
@@ -40,7 +40,7 @@ const articles = [
     date: "28 Apr 2026",
     readTime: "6 menit",
     featured: false,
-    gradient: "from-yellow-500 to-red-600",
+    gradient: "from-red-700 to-blue-800",
     icon: TrendingUp,
     tags: ["Biaya", "Kalkulasi", "Hemat"],
   },
@@ -52,7 +52,7 @@ const articles = [
     date: "22 Apr 2026",
     readTime: "8 menit",
     featured: false,
-    gradient: "from-green-500 to-teal-600",
+    gradient: "from-blue-800 to-blue-600",
     icon: Star,
     tags: ["UMKM", "Online Shop", "Efisiensi"],
   },
@@ -64,7 +64,7 @@ const articles = [
     date: "15 Apr 2026",
     readTime: "9 menit",
     featured: false,
-    gradient: "from-purple-500 to-pink-600",
+    gradient: "from-red-800 to-red-600",
     icon: Globe,
     tags: ["Teknologi", "AI", "Inovasi"],
   },
@@ -76,7 +76,7 @@ const articles = [
     date: "8 Apr 2026",
     readTime: "10 menit",
     featured: false,
-    gradient: "from-cyan-500 to-blue-600",
+    gradient: "from-blue-900 to-blue-700",
     icon: Truck,
     tags: ["Cargo Laut", "Antar Pulau", "Panduan"],
   },
@@ -88,49 +88,43 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
   return (
     <motion.div
       ref={ref}
-      key={article.id}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="glass border border-white/8 rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-2 hover:border-red-600/30 transition-all duration-300 flex flex-col"
+      className="bg-white rounded-2xl border border-surface-border overflow-hidden group cursor-pointer hover:shadow-card-hover hover:-translate-y-2 hover:border-red-200 transition-all duration-300 flex flex-col"
     >
       {/* Thumbnail */}
       <div className={`h-44 bg-gradient-to-br ${article.gradient} relative overflow-hidden flex-shrink-0`}>
         <div className="absolute inset-0 flex items-center justify-center">
           <article.icon className="w-16 h-16 text-white/20" />
         </div>
-        {/* Category badge */}
         <div className="absolute top-3 left-3">
-          <span className="px-2.5 py-1 bg-black/30 backdrop-blur-sm rounded-full text-white text-[10px] font-medium">
+          <span className="px-2.5 py-1 bg-black/25 backdrop-blur-sm rounded-full text-white text-[10px] font-medium">
             {article.category}
           </span>
         </div>
-        {/* Read time */}
-        <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/30 backdrop-blur-sm px-2 py-1 rounded-full">
-          <Clock className="w-3 h-3 text-white/70" />
-          <span className="text-white/70 text-[10px]">{article.readTime}</span>
+        <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/25 backdrop-blur-sm px-2 py-1 rounded-full">
+          <Clock className="w-3 h-3 text-white/80" />
+          <span className="text-white/80 text-[10px]">{article.readTime}</span>
         </div>
       </div>
 
       {/* Content */}
       <div className="p-5 flex flex-col flex-1">
-        {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-3">
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-red-600/10 text-red-500 border border-red-600/20">
+            <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-red-50 text-brand-red border border-red-100">
               {tag}
             </span>
           ))}
         </div>
-
-        <h3 className="font-sora font-bold text-white text-sm leading-snug mb-2 group-hover:text-red-500 transition-colors duration-300 line-clamp-2 flex-1">
+        <h3 className="font-sora font-bold text-slate-900 text-sm leading-snug mb-2 group-hover:text-brand-red transition-colors duration-300 line-clamp-2 flex-1">
           {article.title}
         </h3>
-        <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-3">{article.excerpt}</p>
-
-        <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/5">
-          <span className="text-gray-600 text-xs">{article.date}</span>
-          <span className="flex items-center gap-1 text-red-500 text-xs font-medium group-hover:gap-2 transition-all duration-300">
+        <p className="text-slate-500 text-xs leading-relaxed mb-4 line-clamp-3">{article.excerpt}</p>
+        <div className="flex items-center justify-between mt-auto pt-3 border-t border-surface-border">
+          <span className="text-slate-400 text-xs">{article.date}</span>
+          <span className="flex items-center gap-1 text-brand-red text-xs font-medium group-hover:gap-2 transition-all duration-300">
             Baca <ArrowRight className="w-3 h-3" />
           </span>
         </div>
@@ -142,16 +136,14 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
 export default function BlogSection() {
   const [headerRef, headerInView] = useInView({ triggerOnce: true, threshold: 0.1 });
   const [featuredRef, featuredInView] = useInView({ triggerOnce: true, threshold: 0.1 });
-
   const [activeCategory, setActiveCategory] = useState("Semua");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredArticles = articles.filter((article) => {
-    const matchCategory = activeCategory === "Semua" || article.category === activeCategory;
-    const matchSearch =
-      article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      article.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchCategory && matchSearch;
+  const filteredArticles = articles.filter((a) => {
+    const matchCat = activeCategory === "Semua" || a.category === activeCategory;
+    const matchSearch = a.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      a.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchCat && matchSearch;
   });
 
   const featuredArticle = articles[0];
@@ -160,11 +152,8 @@ export default function BlogSection() {
   );
 
   return (
-    <section className="py-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 to-navy-900/50" />
-      <div className="absolute inset-0 grid-pattern opacity-10" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-12 bg-surface-gray">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Search & Filter */}
         <motion.div
@@ -175,13 +164,13 @@ export default function BlogSection() {
           className="mb-8 space-y-4"
         >
           <div className="relative max-w-md mx-auto">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari artikel..."
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm"
+              className="w-full bg-white border border-slate-300 rounded-xl pl-11 pr-4 py-3 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100 transition-all duration-300 text-sm"
             />
           </div>
 
@@ -189,13 +178,13 @@ export default function BlogSection() {
             {categories.map((cat) => (
               <motion.button
                 key={cat}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.04 }}
+                whileTap={{ scale: 0.96 }}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
+                className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
-                    ? "bg-gradient-to-r from-red-600 to-red-500 text-white shadow-red-glow"
-                    : "glass border border-white/10 text-gray-400 hover:text-white hover:border-red-600/30"
+                    ? "bg-brand-gradient text-white shadow-red-glow"
+                    : "bg-white border border-slate-200 text-slate-600 hover:border-red-200 hover:text-brand-red"
                 }`}
               >
                 {cat}
@@ -208,10 +197,10 @@ export default function BlogSection() {
         {activeCategory === "Semua" && !searchQuery && (
           <motion.div
             ref={featuredRef}
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 28 }}
             animate={featuredInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.7 }}
-            className="glass neon-border rounded-2xl overflow-hidden mb-8 group cursor-pointer hover:-translate-y-1 transition-transform duration-300"
+            className="bg-white rounded-2xl border border-surface-border overflow-hidden mb-8 group cursor-pointer hover:shadow-card-hover hover:-translate-y-1 hover:border-red-200 transition-all duration-300"
           >
             <div className="grid md:grid-cols-2">
               <div className={`h-52 md:h-auto bg-gradient-to-br ${featuredArticle.gradient} relative overflow-hidden`}>
@@ -219,35 +208,26 @@ export default function BlogSection() {
                   <featuredArticle.icon className="w-28 h-28 text-white/15" />
                 </div>
                 <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 bg-red-600 rounded-full text-white text-xs font-semibold">
-                    Featured
-                  </span>
-                  <span className="px-3 py-1 bg-black/30 backdrop-blur-sm rounded-full text-white text-xs">
-                    {featuredArticle.category}
-                  </span>
+                  <span className="px-3 py-1 bg-brand-red rounded-full text-white text-xs font-semibold">Featured</span>
+                  <span className="px-3 py-1 bg-black/25 backdrop-blur-sm rounded-full text-white text-xs">{featuredArticle.category}</span>
                 </div>
               </div>
               <div className="p-6 sm:p-8 flex flex-col justify-center">
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   {featuredArticle.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-red-600/10 text-red-500 border border-red-600/20">
-                      {tag}
-                    </span>
+                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-red-50 text-brand-red border border-red-100">{tag}</span>
                   ))}
                 </div>
-                <h3 className="font-sora font-bold text-xl sm:text-2xl text-white mb-3 group-hover:text-red-500 transition-colors duration-300">
+                <h3 className="font-sora font-bold text-xl sm:text-2xl text-slate-900 mb-3 group-hover:text-brand-red transition-colors duration-300">
                   {featuredArticle.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed mb-5 line-clamp-3">{featuredArticle.excerpt}</p>
+                <p className="text-slate-500 text-sm leading-relaxed mb-5 line-clamp-3">{featuredArticle.excerpt}</p>
                 <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3 text-gray-500 text-xs">
+                  <div className="flex items-center gap-3 text-slate-400 text-xs">
                     <span>{featuredArticle.date}</span>
-                    <span className="flex items-center gap-1">
-                      <Clock className="w-3 h-3" />
-                      {featuredArticle.readTime}
-                    </span>
+                    <span className="flex items-center gap-1"><Clock className="w-3 h-3" />{featuredArticle.readTime}</span>
                   </div>
-                  <span className="flex items-center gap-1 text-red-500 text-sm font-medium group-hover:gap-2 transition-all duration-300">
+                  <span className="flex items-center gap-1 text-brand-red text-sm font-medium group-hover:gap-2 transition-all duration-300">
                     Baca <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
@@ -256,7 +236,7 @@ export default function BlogSection() {
           </motion.div>
         )}
 
-        {/* Articles Grid */}
+        {/* Grid */}
         {gridArticles.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6">
             {gridArticles.map((article, index) => (
@@ -265,8 +245,8 @@ export default function BlogSection() {
           </div>
         ) : (
           <div className="text-center py-16">
-            <BookOpen className="w-12 h-12 text-gray-600 mx-auto mb-3" />
-            <p className="text-gray-500">Tidak ada artikel yang ditemukan.</p>
+            <BookOpen className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-500">Tidak ada artikel yang ditemukan.</p>
           </div>
         )}
 
@@ -278,9 +258,9 @@ export default function BlogSection() {
           className="text-center mt-10"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="glass neon-border px-8 py-3 rounded-xl text-red-500 font-medium hover:bg-red-600/10 transition-all duration-300 text-sm"
+            whileHover={{ scale: 1.04 }}
+            whileTap={{ scale: 0.96 }}
+            className="bg-white border-2 border-brand-red text-brand-red px-8 py-3 rounded-xl font-medium hover:bg-brand-red hover:text-white transition-all duration-300 text-sm"
           >
             Lihat Semua Artikel
           </motion.button>

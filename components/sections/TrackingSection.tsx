@@ -43,9 +43,9 @@ const mockTrackingData = {
 };
 
 const statusColors: Record<string, string> = {
-  "In Transit": "text-red-500 bg-red-500/10 border-red-500/30",
-  "Delivered": "text-green-400 bg-green-400/10 border-green-400/30",
-  "Processing": "text-blue-400 bg-blue-400/10 border-blue-400/30",
+  "In Transit": "text-brand-red bg-red-50 border-red-200",
+  "Delivered": "text-green-600 bg-green-50 border-green-200",
+  "Processing": "text-brand-blue bg-blue-50 border-blue-200",
 };
 
 export default function TrackingSection() {
@@ -74,36 +74,29 @@ export default function TrackingSection() {
   };
 
   return (
-    <section className="py-12 relative overflow-hidden">
-      {/* Dark dashboard background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 to-[#010314]" />
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-
-      {/* Neon glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/8 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/8 rounded-full blur-3xl" />
-
+    <section className="py-12 relative overflow-hidden bg-white">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Search Box */}
         <motion.div
+          ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="glass neon-border rounded-2xl p-6 mb-8"
+          className="bg-white rounded-2xl border border-slate-200 p-6 mb-8 shadow-sm"
         >
-          <p className="text-gray-500 text-sm mb-4 text-center">
-            Demo — Coba resi: <button onClick={() => setResiInput("DC001234")} className="text-red-500 hover:underline font-medium">DC001234</button> atau <button onClick={() => setResiInput("DC005678")} className="text-red-500 hover:underline font-medium">DC005678</button>
+          <p className="text-slate-500 text-sm mb-4 text-center">
+            Demo — Coba resi: <button onClick={() => setResiInput("DC001234")} className="text-brand-red hover:underline font-medium">DC001234</button> atau <button onClick={() => setResiInput("DC005678")} className="text-brand-red hover:underline font-medium">DC005678</button>
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 relative">
-              <Package className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500" />
+              <Package className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
               <input
                 type="text"
                 value={resiInput}
                 onChange={(e) => setResiInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleTrack()}
                 placeholder="Masukkan nomor resi (contoh: DC001234)"
-                className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-red-600/50 focus:bg-red-600/5 transition-all duration-300 text-sm"
+                className="w-full bg-white border border-slate-300 rounded-xl pl-12 pr-4 py-4 text-slate-900 placeholder-slate-400 focus:outline-none focus:border-brand-red focus:ring-2 focus:ring-red-100 transition-all duration-300 text-sm"
               />
             </div>
             <motion.button
@@ -135,10 +128,10 @@ export default function TrackingSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="glass border border-red-500/30 rounded-2xl p-6 text-center mb-8"
+              className="bg-white border border-red-200 rounded-2xl p-6 text-center mb-8"
             >
-              <div className="text-red-400 text-lg font-semibold mb-2">Nomor Resi Tidak Ditemukan</div>
-              <p className="text-gray-400 text-sm">Pastikan nomor resi yang Anda masukkan sudah benar.</p>
+              <div className="text-brand-red text-lg font-semibold mb-2">Nomor Resi Tidak Ditemukan</div>
+              <p className="text-slate-600 text-sm">Pastikan nomor resi yang Anda masukkan sudah benar.</p>
             </motion.div>
           )}
         </AnimatePresence>
@@ -154,13 +147,13 @@ export default function TrackingSection() {
               className="space-y-6"
             >
               {/* Status Card */}
-              <div className="glass neon-border rounded-2xl p-6">
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
                   <div>
-                    <div className="text-gray-400 text-sm mb-1">Nomor Resi</div>
-                    <div className="font-sora font-bold text-2xl text-white">{trackingResult.resi}</div>
+                    <div className="text-slate-500 text-sm mb-1">Nomor Resi</div>
+                    <div className="font-sora font-bold text-2xl text-slate-900">{trackingResult.resi}</div>
                   </div>
-                  <span className={`px-4 py-2 rounded-full text-sm font-semibold border ${statusColors[trackingResult.status] || "text-gray-400 bg-gray-400/10 border-gray-400/30"}`}>
+                  <span className={`px-4 py-2 rounded-full text-sm font-semibold border ${statusColors[trackingResult.status] || "text-slate-600 bg-slate-50 border-slate-200"}`}>
                     {trackingResult.status}
                   </span>
                 </div>
@@ -172,18 +165,18 @@ export default function TrackingSection() {
                     { label: "Estimasi Tiba", value: trackingResult.estimatedArrival },
                     { label: "Layanan", value: trackingResult.service },
                   ].map((item) => (
-                    <div key={item.label} className="bg-white/5 rounded-xl p-3">
-                      <div className="text-gray-500 text-xs mb-1">{item.label}</div>
-                      <div className="text-white text-sm font-semibold">{item.value}</div>
+                    <div key={item.label} className="bg-slate-50 rounded-xl p-3 border border-slate-100">
+                      <div className="text-slate-500 text-xs mb-1">{item.label}</div>
+                      <div className="text-slate-900 text-sm font-semibold">{item.value}</div>
                     </div>
                   ))}
                 </div>
               </div>
 
               {/* Timeline */}
-              <div className="glass neon-border rounded-2xl p-6">
-                <h3 className="font-sora font-bold text-lg text-white mb-6 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-red-500" />
+              <div className="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h3 className="font-sora font-bold text-lg text-slate-900 mb-6 flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-brand-red" />
                   Riwayat Pengiriman
                 </h3>
                 <div className="space-y-0">
@@ -197,31 +190,31 @@ export default function TrackingSection() {
                     >
                       {/* Line */}
                       {i < trackingResult.timeline.length - 1 && (
-                        <div className={`absolute left-[18px] top-8 w-0.5 h-full ${step.done ? "bg-gradient-to-b from-red-600 to-red-600/50" : "bg-white/10"}`} />
+                        <div className={`absolute left-[18px] top-8 w-0.5 h-full ${step.done ? "bg-gradient-to-b from-brand-red to-red-300" : "bg-slate-200"}`} />
                       )}
 
                       {/* Dot */}
                       <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 z-10 ${
                         step.done
-                          ? "bg-gradient-to-br from-red-600 to-red-500 shadow-red-glow"
-                          : "bg-white/10 border border-white/20"
+                          ? "bg-gradient-to-br from-brand-red to-red-600 shadow-lg"
+                          : "bg-slate-100 border-2 border-slate-200"
                       }`}>
                         {step.done ? (
                           <CheckCircle className="w-4 h-4 text-white" />
                         ) : (
-                          <div className="w-2 h-2 rounded-full bg-white/30" />
+                          <div className="w-2 h-2 rounded-full bg-slate-300" />
                         )}
                       </div>
 
                       {/* Content */}
                       <div className={`pb-6 ${i === trackingResult.timeline.length - 1 ? "pb-0" : ""}`}>
-                        <div className={`font-semibold text-sm ${step.done ? "text-white" : "text-gray-500"}`}>
+                        <div className={`font-semibold text-sm ${step.done ? "text-slate-900" : "text-slate-500"}`}>
                           {step.status}
                         </div>
-                        <div className={`text-xs mt-0.5 ${step.done ? "text-gray-400" : "text-gray-600"}`}>
+                        <div className={`text-xs mt-0.5 ${step.done ? "text-slate-600" : "text-slate-400"}`}>
                           {step.location}
                         </div>
-                        <div className={`text-xs mt-0.5 ${step.done ? "text-red-500" : "text-gray-600"}`}>
+                        <div className={`text-xs mt-0.5 ${step.done ? "text-brand-red" : "text-slate-400"}`}>
                           {step.time}
                         </div>
                       </div>
@@ -240,10 +233,10 @@ export default function TrackingSection() {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <div className="w-24 h-24 rounded-full bg-red-600/10 border border-red-600/20 flex items-center justify-center mx-auto mb-4">
-              <Truck className="w-10 h-10 text-red-500" />
+            <div className="w-24 h-24 rounded-full bg-red-50 border border-red-100 flex items-center justify-center mx-auto mb-4">
+              <Truck className="w-10 h-10 text-brand-red" />
             </div>
-            <p className="text-gray-500">Masukkan nomor resi untuk melacak paket Anda</p>
+            <p className="text-slate-500">Masukkan nomor resi untuk melacak paket Anda</p>
           </motion.div>
         )}
       </div>

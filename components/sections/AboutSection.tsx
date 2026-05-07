@@ -25,10 +25,7 @@ export default function AboutSection() {
   const [timelineRef, timelineInView] = useInView({ triggerOnce: true, threshold: 0.1 });
 
   return (
-    <section className="py-12 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-navy-950 to-navy-900/50" />
-      <div className="absolute inset-0 grid-pattern opacity-10" />
-
+    <section className="py-12 relative overflow-hidden bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
@@ -38,15 +35,14 @@ export default function AboutSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <Award className="w-4 h-4 text-red-500" />
-            <span className="text-red-500 text-sm font-medium">Tentang Kami</span>
+          <div className="inline-block px-4 py-1.5 rounded-full bg-red-50 text-brand-red text-xs font-semibold tracking-wide uppercase mb-4 border border-red-100">
+            Tentang Kami
           </div>
-          <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-4">
+          <h2 className="font-sora font-black text-4xl sm:text-5xl text-slate-900 mb-4">
             Siapa{" "}
-            <span className="gradient-text">Ditama Cargo?</span>
+            <span className="text-brand-red">Ditama Cargo?</span>
           </h2>
-          <p className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed">
+          <p className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed">
             Ditama Cargo Solution hadir sebagai solusi pengiriman cargo express yang cepat, aman, dan terpercaya untuk kebutuhan bisnis maupun personal di seluruh Indonesia.
           </p>
         </motion.div>
@@ -58,13 +54,17 @@ export default function AboutSection() {
               icon: Eye,
               title: "Visi",
               content: "Menjadi perusahaan logistik cargo express terdepan di Indonesia yang dikenal atas kecepatan, keamanan, dan inovasi teknologi dalam setiap layanan pengiriman.",
-              color: "from-red-600 to-red-800",
+              borderColor: "border-l-brand-red",
+              iconBg: "bg-red-50",
+              iconColor: "text-brand-red",
             },
             {
               icon: Target,
               title: "Misi",
               content: "Memberikan solusi logistik yang cepat, aman, dan terpercaya dengan memanfaatkan teknologi modern, membangun jaringan distribusi yang kuat, dan mengutamakan kepuasan pelanggan di atas segalanya.",
-              color: "from-red-500 to-red-700",
+              borderColor: "border-l-brand-blue",
+              iconBg: "bg-blue-50",
+              iconColor: "text-brand-blue",
             },
           ].map((item, i) => (
             <motion.div
@@ -72,13 +72,13 @@ export default function AboutSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.2 + i * 0.2 }}
-              className="glass neon-border rounded-2xl p-8"
+              className={`bg-white rounded-2xl border border-slate-200 border-l-4 ${item.borderColor} p-8 hover:shadow-[0_12px_48px_rgba(15,23,42,0.12)] hover:-translate-y-1.5 transition-all duration-300`}
             >
-              <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center mb-5`}>
-                <item.icon className="w-7 h-7 text-white" />
+              <div className={`w-14 h-14 rounded-2xl ${item.iconBg} flex items-center justify-center mb-5`}>
+                <item.icon className={`w-7 h-7 ${item.iconColor}`} />
               </div>
-              <h3 className="font-sora font-bold text-2xl text-white mb-3">{item.title}</h3>
-              <p className="text-gray-400 leading-relaxed">{item.content}</p>
+              <h3 className="font-sora font-bold text-2xl text-slate-900 mb-3">{item.title}</h3>
+              <p className="text-slate-600 leading-relaxed">{item.content}</p>
             </motion.div>
           ))}
         </div>
@@ -88,10 +88,10 @@ export default function AboutSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mb-16"
+          className="mb-16 bg-[#F8FAFC] rounded-3xl p-8"
         >
-          <h3 className="font-sora font-bold text-2xl text-white text-center mb-8">
-            Nilai-Nilai <span className="gradient-text">Perusahaan</span>
+          <h3 className="font-sora font-bold text-2xl text-slate-900 text-center mb-8">
+            Nilai-Nilai <span className="text-brand-red">Perusahaan</span>
           </h3>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
             {values.map((value, i) => (
@@ -100,13 +100,13 @@ export default function AboutSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                className="glass rounded-2xl p-5 text-center group hover:border-red-600/30 transition-all duration-300 border border-white/5"
+                className="bg-white rounded-2xl border border-slate-200 p-5 text-center group hover:shadow-[0_12px_48px_rgba(15,23,42,0.12)] hover:-translate-y-1.5 transition-all duration-300"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600/20 to-red-500/20 border border-red-600/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <value.icon className="w-6 h-6 text-red-500" />
+                <div className="w-12 h-12 rounded-xl bg-red-50 border border-red-100 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <value.icon className="w-6 h-6 text-brand-red" />
                 </div>
-                <div className="font-semibold text-white mb-2">{value.title}</div>
-                <div className="text-gray-500 text-xs leading-relaxed">{value.desc}</div>
+                <div className="font-semibold text-slate-900 mb-2">{value.title}</div>
+                <div className="text-slate-500 text-xs leading-relaxed">{value.desc}</div>
               </motion.div>
             ))}
           </div>
@@ -117,14 +117,14 @@ export default function AboutSection() {
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
             animate={timelineInView ? { opacity: 1, y: 0 } : {}}
-            className="font-sora font-bold text-2xl text-white text-center mb-12"
+            className="font-sora font-bold text-2xl text-slate-900 text-center mb-12"
           >
-            Perjalanan <span className="gradient-text">Kami</span>
+            Perjalanan <span className="text-brand-red">Kami</span>
           </motion.h3>
 
           <div className="relative">
             {/* Center line */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-red-600 via-red-500 to-transparent hidden md:block" />
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-brand-red via-red-300 to-slate-200 hidden md:block" />
 
             <div className="space-y-8">
               {timeline.map((item, i) => (
@@ -136,15 +136,15 @@ export default function AboutSection() {
                   className={`flex items-center gap-8 ${i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"}`}
                 >
                   <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                    <div className="glass neon-border rounded-2xl p-5 inline-block">
-                      <div className="gradient-text font-sora font-black text-2xl mb-1">{item.year}</div>
-                      <div className="text-white font-semibold mb-1">{item.title}</div>
-                      <div className="text-gray-400 text-sm">{item.desc}</div>
+                    <div className="bg-white rounded-2xl border border-slate-200 p-5 inline-block hover:shadow-[0_12px_48px_rgba(15,23,42,0.12)] hover:-translate-y-1 transition-all duration-300">
+                      <div className="text-brand-red font-sora font-black text-2xl mb-1">{item.year}</div>
+                      <div className="text-slate-900 font-semibold mb-1">{item.title}</div>
+                      <div className="text-slate-600 text-sm">{item.desc}</div>
                     </div>
                   </div>
 
                   {/* Center dot */}
-                  <div className="hidden md:flex w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-500 items-center justify-center flex-shrink-0 shadow-red-glow z-10">
+                  <div className="hidden md:flex w-10 h-10 rounded-full bg-gradient-to-br from-brand-red to-red-600 items-center justify-center flex-shrink-0 shadow-lg z-10">
                     <div className="w-3 h-3 bg-white rounded-full" />
                   </div>
 

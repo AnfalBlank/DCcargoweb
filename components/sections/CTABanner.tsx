@@ -9,66 +9,58 @@ export default function CTABanner() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.3 });
 
   return (
-    <section className="py-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-red-700/20 via-red-600/20 to-red-700/20" />
-      <div className="absolute inset-0 grid-pattern opacity-20" />
-      <motion.div
-        animate={{ x: ["-100%", "100%"] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-red-600/10 to-transparent"
-      />
-
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-20 bg-surface-gray">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
-          className="glass neon-border rounded-3xl p-8 sm:p-10 text-center"
+          initial={{ opacity: 0, y: 28 }} animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.7 }}
+          className="relative overflow-hidden rounded-3xl bg-brand-navy p-10 sm:p-14 text-center shadow-card-lg"
         >
-          <motion.div
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 3, repeat: Infinity }}
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-red-600 to-blue-700 flex items-center justify-center mx-auto mb-5 shadow-red-glow-lg"
-          >
-            <Truck className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
-          </motion.div>
+          {/* Background decoration */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-3xl" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-blue-900/20 rounded-full blur-3xl" />
+          <div className="absolute inset-0 grid-pattern opacity-10" />
 
-          <h2 className="font-sora font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
-            Siap Kirim Sekarang?
-          </h2>
-          <p className="text-gray-400 text-base sm:text-lg max-w-2xl mx-auto mb-8">
-            Bergabunglah dengan ribuan pelanggan yang telah mempercayakan kebutuhan logistik mereka kepada Ditama Cargo Solution.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <motion.span
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white shadow-red-glow cursor-pointer w-full sm:w-auto"
-              >
-                Kirim Sekarang
-                <ArrowRight className="w-5 h-5" />
-              </motion.span>
-            </Link>
-            <motion.a
-              href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya mulai?")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white glass border border-green-500/30 hover:bg-green-500/10 transition-all duration-300 w-full sm:w-auto"
+          <div className="relative z-10">
+            <motion.div
+              animate={{ y: [0, -8, 0] }} transition={{ duration: 3, repeat: Infinity }}
+              className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-brand-gradient flex items-center justify-center mx-auto mb-6 shadow-red-glow"
             >
-              <MessageCircle className="w-5 h-5 text-green-400" />
-              Chat WhatsApp
-            </motion.a>
-          </div>
+              <Truck className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
+            </motion.div>
 
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mt-8 pt-6 border-t border-white/10">
-            {["✓ Gratis Konsultasi", "✓ Harga Transparan", "✓ Garansi Tepat Waktu", "✓ Asuransi Pengiriman"].map((item) => (
-              <span key={item} className="text-gray-400 text-xs sm:text-sm">{item}</span>
-            ))}
+            <h2 className="font-sora font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
+              Siap Kirim Sekarang?
+            </h2>
+            <p className="text-white/60 text-base sm:text-lg max-w-xl mx-auto mb-9">
+              Bergabunglah dengan ribuan pelanggan yang telah mempercayakan kebutuhan logistik mereka kepada Ditama Cargo Solution.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/contact">
+                <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
+                  className="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold cursor-pointer w-full sm:w-auto shadow-red-glow"
+                >
+                  Kirim Sekarang <ArrowRight className="w-5 h-5" />
+                </motion.span>
+              </Link>
+              <motion.a
+                href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya mulai?")}`}
+                target="_blank" rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
+                className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white border border-white/20 hover:bg-white/10 transition-all w-full sm:w-auto"
+              >
+                <MessageCircle className="w-5 h-5 text-green-400" />
+                Chat WhatsApp
+              </motion.a>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-4 sm:gap-8 mt-10 pt-8 border-t border-white/10">
+              {["✓ Gratis Konsultasi", "✓ Harga Transparan", "✓ Garansi Tepat Waktu", "✓ Asuransi Pengiriman"].map((item) => (
+                <span key={item} className="text-white/50 text-xs sm:text-sm">{item}</span>
+              ))}
+            </div>
           </div>
         </motion.div>
       </div>

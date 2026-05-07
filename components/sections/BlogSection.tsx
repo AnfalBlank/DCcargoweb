@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { useState } from "react";
-import { BookOpen, Search, ArrowRight, Clock, Tag, TrendingUp, Package, Truck, Globe, Star } from "lucide-react";
+import { Search, ArrowRight, Clock, BookOpen } from "lucide-react";
 
 const categories = ["Semua", "Cargo Tips", "Logistics Insight", "Shipping Education", "Company News", "Supply Chain"];
 
@@ -16,8 +16,7 @@ const articles = [
     date: "5 Mei 2026",
     readTime: "5 menit",
     featured: true,
-    gradient: "from-red-600 to-red-800",
-    icon: Package,
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80",
     tags: ["Pengemasan", "Fragile", "Tips"],
   },
   {
@@ -28,8 +27,7 @@ const articles = [
     date: "3 Mei 2026",
     readTime: "7 menit",
     featured: false,
-    gradient: "from-blue-700 to-blue-900",
-    icon: Truck,
+    image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80",
     tags: ["Perbandingan", "Moda Pengiriman"],
   },
   {
@@ -40,8 +38,7 @@ const articles = [
     date: "28 Apr 2026",
     readTime: "6 menit",
     featured: false,
-    gradient: "from-red-700 to-blue-800",
-    icon: TrendingUp,
+    image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80",
     tags: ["Biaya", "Kalkulasi", "Hemat"],
   },
   {
@@ -52,8 +49,7 @@ const articles = [
     date: "22 Apr 2026",
     readTime: "8 menit",
     featured: false,
-    gradient: "from-blue-800 to-blue-600",
-    icon: Star,
+    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80",
     tags: ["UMKM", "Online Shop", "Efisiensi"],
   },
   {
@@ -64,8 +60,7 @@ const articles = [
     date: "15 Apr 2026",
     readTime: "9 menit",
     featured: false,
-    gradient: "from-red-800 to-red-600",
-    icon: Globe,
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
     tags: ["Teknologi", "AI", "Inovasi"],
   },
   {
@@ -76,8 +71,7 @@ const articles = [
     date: "8 Apr 2026",
     readTime: "10 menit",
     featured: false,
-    gradient: "from-blue-900 to-blue-700",
-    icon: Truck,
+    image: "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?w=600&q=80",
     tags: ["Cargo Laut", "Antar Pulau", "Panduan"],
   },
 ];
@@ -94,16 +88,23 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
       className="bg-white rounded-2xl border border-surface-border overflow-hidden group cursor-pointer hover:shadow-card-hover hover:-translate-y-2 hover:border-red-200 transition-all duration-300 flex flex-col"
     >
       {/* Thumbnail */}
-      <div className={`h-44 bg-gradient-to-br ${article.gradient} relative overflow-hidden flex-shrink-0`}>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <article.icon className="w-16 h-16 text-white/20" />
-        </div>
+      <div className="h-44 relative overflow-hidden flex-shrink-0 bg-slate-100">
+        <img
+          src={article.image}
+          alt={article.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          loading="lazy"
+        />
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+        {/* Category badge */}
         <div className="absolute top-3 left-3">
-          <span className="px-2.5 py-1 bg-black/25 backdrop-blur-sm rounded-full text-white text-[10px] font-medium">
+          <span className="px-2.5 py-1 bg-black/40 backdrop-blur-sm rounded-full text-white text-[10px] font-medium">
             {article.category}
           </span>
         </div>
-        <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/25 backdrop-blur-sm px-2 py-1 rounded-full">
+        {/* Read time */}
+        <div className="absolute bottom-3 right-3 flex items-center gap-1 bg-black/40 backdrop-blur-sm px-2 py-1 rounded-full">
           <Clock className="w-3 h-3 text-white/80" />
           <span className="text-white/80 text-[10px]">{article.readTime}</span>
         </div>
@@ -203,13 +204,17 @@ export default function BlogSection() {
             className="bg-white rounded-2xl border border-surface-border overflow-hidden mb-8 group cursor-pointer hover:shadow-card-hover hover:-translate-y-1 hover:border-red-200 transition-all duration-300"
           >
             <div className="grid md:grid-cols-2">
-              <div className={`h-52 md:h-auto bg-gradient-to-br ${featuredArticle.gradient} relative overflow-hidden`}>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <featuredArticle.icon className="w-28 h-28 text-white/15" />
-                </div>
+              <div className={`h-52 md:h-auto relative overflow-hidden bg-slate-100`}>
+                <img
+                  src={featuredArticle.image}
+                  alt={featuredArticle.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
                 <div className="absolute top-4 left-4 flex gap-2">
                   <span className="px-3 py-1 bg-brand-red rounded-full text-white text-xs font-semibold">Featured</span>
-                  <span className="px-3 py-1 bg-black/25 backdrop-blur-sm rounded-full text-white text-xs">{featuredArticle.category}</span>
+                  <span className="px-3 py-1 bg-black/35 backdrop-blur-sm rounded-full text-white text-xs">{featuredArticle.category}</span>
                 </div>
               </div>
               <div className="p-6 sm:p-8 flex flex-col justify-center">

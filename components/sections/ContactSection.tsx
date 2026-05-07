@@ -17,6 +17,7 @@ import {
 } from "lucide-react";
 
 const WA_NUMBER = "6282177981028";
+const WA_ADMIN = "6285211172494";
 const WA_CONTACT_MSG = encodeURIComponent(
   "Halo DC Cargo, saya ingin berkonsultasi mengenai kebutuhan pengiriman saya. Bisa dibantu?"
 );
@@ -56,13 +57,23 @@ export default function ContactSection() {
   const contactInfo = [
     {
       icon: Phone,
-      label: "WhatsApp / Telepon",
+      label: "WhatsApp CS",
       value: "+62 821-7798-1028",
-      sub: "Senin - Sabtu, 08:00 - 20:00",
+      sub: "Customer Service — Senin s/d Sabtu, 08:00–20:00",
       iconColor: "text-brand-red",
       iconBg: "bg-red-50",
       borderColor: "border-red-100",
       href: `https://wa.me/${WA_NUMBER}?text=${WA_CONTACT_MSG}`,
+    },
+    {
+      icon: Phone,
+      label: "WhatsApp Admin",
+      value: "+62 852-1117-2494",
+      sub: "Admin — Senin s/d Sabtu, 08:00–20:00",
+      iconColor: "text-brand-blue",
+      iconBg: "bg-blue-50",
+      borderColor: "border-blue-100",
+      href: `https://wa.me/${WA_ADMIN}?text=${WA_CONTACT_MSG}`,
     },
     {
       icon: Mail,

@@ -30,6 +30,7 @@ const footerLinks = {
 };
 
 const WA_URL = `https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya?")}`;
+const WA_ADMIN_URL = `https://wa.me/6285211172494?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya?")}`;
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -59,7 +60,18 @@ export default function Footer() {
               <a href={WA_URL} target="_blank" rel="noopener noreferrer"
                 className="flex items-start gap-3 text-white/50 text-sm hover:text-white transition-colors group">
                 <Phone className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />
-                <span>+62 821-7798-1028</span>
+                <div>
+                  <div className="text-white/30 text-[10px] uppercase tracking-wide mb-0.5">CS</div>
+                  <span>+62 821-7798-1028</span>
+                </div>
+              </a>
+              <a href={WA_ADMIN_URL} target="_blank" rel="noopener noreferrer"
+                className="flex items-start gap-3 text-white/50 text-sm hover:text-white transition-colors group">
+                <Phone className="w-4 h-4 text-blue-400 flex-shrink-0 mt-0.5" />
+                <div>
+                  <div className="text-white/30 text-[10px] uppercase tracking-wide mb-0.5">Admin</div>
+                  <span>+62 852-1117-2494</span>
+                </div>
               </a>
               <div className="flex items-start gap-3 text-white/50 text-sm">
                 <Mail className="w-4 h-4 text-red-400 flex-shrink-0 mt-0.5" />

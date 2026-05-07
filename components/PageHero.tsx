@@ -76,47 +76,102 @@ function AboutBg() {
   );
 }
 
-// ── Services: moving cargo icons grid ────────────────────────────────────────
+// ── Services: geometric cargo network ────────────────────────────────────────
 function ServicesBg() {
-  const icons = ["🚛","✈️","🚢","📦","⚡","🏭","🏠","📍","🔒","⏱️","🌏","💼"];
+  // Service boxes as geometric shapes
+  const boxes = [
+    { w: 56, h: 40, x: "6%",  y: "18%", delay: 0,   label: "DARAT" },
+    { w: 56, h: 40, x: "78%", y: "12%", delay: 0.3, label: "LAUT" },
+    { w: 56, h: 40, x: "82%", y: "58%", delay: 0.6, label: "UDARA" },
+    { w: 56, h: 40, x: "4%",  y: "62%", delay: 0.9, label: "EXPRESS" },
+    { w: 56, h: 40, x: "42%", y: "72%", delay: 1.2, label: "WAREHOUSE" },
+  ];
+
+  // Connection lines between nodes
+  const lines = [
+    { x1: "9%", y1: "38%", x2: "45%", y2: "50%", delay: 0.4 },
+    { x1: "81%", y1: "32%", x2: "45%", y2: "50%", delay: 0.7 },
+    { x1: "85%", y1: "58%", x2: "45%", y2: "72%", delay: 1.0 },
+    { x1: "7%",  y1: "62%", x2: "45%", y2: "72%", delay: 1.3 },
+  ];
+
   return (
     <>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_30%_50%,rgba(220,38,38,0.2),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_30%,rgba(30,58,138,0.25),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_30%_50%,rgba(220,38,38,0.18),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_40%_at_80%_30%,rgba(30,58,138,0.22),transparent)]" />
+
       {/* Animated route lines */}
       {[...Array(5)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"
+          className="absolute h-px bg-gradient-to-r from-transparent via-white/15 to-transparent"
           style={{ top: `${20 + i * 15}%`, left: 0, right: 0 }}
-          animate={{ opacity: [0, 0.6, 0], x: ["-100%", "100%"] }}
+          animate={{ opacity: [0, 0.5, 0], x: ["-100%", "100%"] }}
           transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.8, ease: "linear" }}
         />
       ))}
-      {/* Floating service icons */}
-      {icons.map((icon, i) => (
+
+      {/* SVG network connections */}
+      <svg className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
+        {lines.map((l, i) => (
+          <motion.line
+            key={i}
+            x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+            stroke="rgba(255,255,255,0.12)"
+            strokeWidth="1"
+            strokeDasharray="4 3"
+            initial={{ pathLength: 0, opacity: 0 }}
+            animate={{ pathLength: 1, opacity: 1 }}
+            transition={{ delay: l.delay, duration: 0.8 }}
+          />
+        ))}
+        {/* Moving dot along a route */}
+        <motion.circle
+          r="3" fill="rgba(220,38,38,0.7)"
+          animate={{
+            cx: ["9%", "45%", "81%", "45%", "9%"],
+            cy: ["38%", "50%", "32%", "50%", "38%"],
+          }}
+          transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+        />
+      </svg>
+
+      {/* Service label boxes */}
+      {boxes.map((box, i) => (
         <motion.div
           key={i}
-          className="absolute text-2xl select-none"
-          style={{
-            left: `${5 + (i % 6) * 17}%`,
-            top: `${10 + Math.floor(i / 6) * 55}%`,
-            opacity: 0.12,
+          className="absolute flex items-center justify-center rounded-lg border border-white/15 bg-white/5 backdrop-blur-sm"
+          style={{ width: box.w, height: box.h, left: box.x, top: box.y }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1, y: [0, -5, 0] }}
+          transition={{
+            opacity: { delay: box.delay, duration: 0.5 },
+            scale:   { delay: box.delay, duration: 0.5 },
+            y:       { duration: 3 + i * 0.4, repeat: Infinity, ease: "easeInOut", delay: box.delay },
           }}
-          animate={{
-            y: [0, -12, 0],
-            opacity: [0.08, 0.18, 0.08],
-            rotate: [0, i % 2 === 0 ? 8 : -8, 0],
-          }}
-          transition={{ duration: 3 + (i % 4), repeat: Infinity, delay: i * 0.3, ease: "easeInOut" }}
         >
-          {icon}
+          <span className="text-white/40 text-[9px] font-bold tracking-wider">{box.label}</span>
         </motion.div>
       ))}
-      {/* Grid dots */}
+
+      {/* Central hub circle */}
+      <motion.div
+        className="absolute rounded-full border-2 border-red-500/25 bg-red-600/8"
+        style={{ width: 80, height: 80, left: "calc(45% - 40px)", top: "calc(50% - 40px)" }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.9, 0.5] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+      />
+      <motion.div
+        className="absolute rounded-full border border-red-500/15"
+        style={{ width: 130, height: 130, left: "calc(45% - 65px)", top: "calc(50% - 65px)" }}
+        animate={{ scale: [1, 1.08, 1], opacity: [0.3, 0.6, 0.3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      />
+
+      {/* Dot grid */}
       <div className="absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
@@ -175,15 +230,13 @@ function TrackingBg() {
           />
         </motion.div>
       ))}
-      {/* Moving package along path */}
+      {/* Moving dot along route */}
       <motion.div
-        className="absolute text-xl"
+        className="absolute w-3 h-3 rounded-full bg-red-500/80 shadow-[0_0_8px_rgba(220,38,38,0.8)]"
         animate={{ x: ["10%", "85%", "10%"], y: ["20%", "60%", "20%"] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         style={{ left: 0, top: 0 }}
-      >
-        📦
-      </motion.div>
+      />
       {/* Dashed route path */}
       <svg className="absolute inset-0 w-full h-full opacity-15" xmlns="http://www.w3.org/2000/svg">
         <path d="M 10% 20% Q 50% 80% 85% 60%" stroke="#60A5FA" strokeWidth="1.5" strokeDasharray="6 4" fill="none" />
@@ -234,78 +287,116 @@ function BlogBg() {
           {tag}
         </motion.div>
       ))}
-      {/* Pencil/write icon floating */}
+      {/* Pen/write shape — geometric */}
       <motion.div
-        className="absolute text-4xl opacity-10 right-1/4 top-1/3"
+        className="absolute right-1/4 top-1/3 w-8 h-8 opacity-15"
         animate={{ rotate: [-5, 5, -5], y: [0, -10, 0] }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
-        ✍️
+        <div className="w-full h-1.5 bg-white rounded-full" />
+        <div className="w-0 h-0 border-l-[16px] border-r-0 border-t-[6px] border-b-[6px] border-l-white border-t-transparent border-b-transparent mt-0.5" />
       </motion.div>
     </>
   );
 }
 
-// ── Contact: communication waves ─────────────────────────────────────────────
+// ── Contact: communication waves — geometric ─────────────────────────────────
 function ContactBg() {
+  // Chat bubble shapes (no emoji)
+  const bubbles = [
+    { text: "Halo, saya ingin kirim cargo...", x: "6%",  y: "18%", delay: 0,   align: "left"  as const },
+    { text: "Siap! Kami bantu sekarang",       x: "44%", y: "32%", delay: 0.9, align: "right" as const },
+    { text: "Berapa estimasi biayanya?",        x: "4%",  y: "52%", delay: 1.8, align: "left"  as const },
+    { text: "Cek penawaran terbaik kami",       x: "41%", y: "66%", delay: 2.7, align: "right" as const },
+  ];
+
   return (
     <>
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_40%_50%,rgba(220,38,38,0.18),transparent)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_75%_30%,rgba(30,58,138,0.25),transparent)]" />
-      {/* WhatsApp-style message bubbles */}
-      {[
-        { text: "Halo, saya ingin kirim cargo...", x: "8%",  y: "20%", delay: 0,   align: "left" },
-        { text: "Siap! Kami bantu sekarang 🚀",   x: "45%", y: "35%", delay: 0.8, align: "right" },
-        { text: "Berapa estimasi biayanya?",       x: "5%",  y: "55%", delay: 1.6, align: "left" },
-        { text: "Cek penawaran terbaik kami ✓",   x: "42%", y: "68%", delay: 2.4, align: "right" },
-      ].map((bubble, i) => (
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_60%_at_40%_50%,rgba(220,38,38,0.15),transparent)]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_50%_50%_at_75%_30%,rgba(30,58,138,0.22),transparent)]" />
+
+      {/* Chat bubbles */}
+      {bubbles.map((b, i) => (
         <motion.div
           key={i}
-          className={`absolute max-w-[180px] px-3 py-2 rounded-2xl text-[10px] font-medium backdrop-blur-sm ${
-            bubble.align === "left"
-              ? "bg-white/10 border border-white/15 text-white/50 rounded-tl-sm"
-              : "bg-red-600/20 border border-red-500/25 text-red-200/50 rounded-tr-sm"
+          className={`absolute max-w-[190px] px-3 py-2 text-[10px] font-medium backdrop-blur-sm ${
+            b.align === "left"
+              ? "bg-white/8 border border-white/12 text-white/45 rounded-2xl rounded-tl-sm"
+              : "bg-red-600/15 border border-red-500/20 text-red-200/45 rounded-2xl rounded-tr-sm"
           }`}
-          style={{ left: bubble.x, top: bubble.y }}
-          initial={{ opacity: 0, scale: 0.8, x: bubble.align === "left" ? -10 : 10 }}
-          animate={{ opacity: [0, 0.9, 0.9, 0], scale: 1, x: 0 }}
-          transition={{ duration: 4, repeat: Infinity, delay: bubble.delay + i * 0.2, repeatDelay: 4 }}
+          style={{ left: b.x, top: b.y }}
+          initial={{ opacity: 0, scale: 0.85, x: b.align === "left" ? -12 : 12 }}
+          animate={{ opacity: [0, 0.85, 0.85, 0], scale: 1, x: 0 }}
+          transition={{ duration: 4.5, repeat: Infinity, delay: b.delay, repeatDelay: 3.5 }}
         >
-          {bubble.text}
+          {b.text}
+          {/* Read tick */}
+          {b.align === "right" && (
+            <span className="ml-1 text-blue-300/50">✓✓</span>
+          )}
         </motion.div>
       ))}
-      {/* Signal waves from phone icon */}
-      <div className="absolute right-1/4 top-1/2 -translate-y-1/2">
-        <div className="text-4xl opacity-15">📱</div>
+
+      {/* Phone / signal tower — geometric */}
+      <div className="absolute right-[22%] top-1/2 -translate-y-1/2">
+        {/* Phone body */}
+        <motion.div
+          className="w-10 h-16 rounded-xl border-2 border-white/20 bg-white/5 relative"
+          animate={{ y: [0, -6, 0] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <div className="absolute top-1.5 left-1/2 -translate-x-1/2 w-4 h-0.5 rounded-full bg-white/20" />
+          <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border border-white/20" />
+        </motion.div>
+        {/* Signal rings */}
         {[1, 2, 3].map((ring) => (
           <motion.div
             key={ring}
-            className="absolute rounded-full border border-green-400/30"
+            className="absolute rounded-full border border-green-400/25"
             style={{
-              width: ring * 40,
-              height: ring * 40,
-              left: "50%",
-              top: "50%",
-              x: "-50%",
-              y: "-50%",
+              width: ring * 36,
+              height: ring * 36,
+              left: "50%", top: "50%",
+              x: "-50%", y: "-50%",
             }}
-            animate={{ scale: [1, 1.5, 1], opacity: [0.4, 0, 0.4] }}
-            transition={{ duration: 2, repeat: Infinity, delay: ring * 0.4 }}
+            animate={{ scale: [1, 1.6, 1], opacity: [0.4, 0, 0.4] }}
+            transition={{ duration: 2.2, repeat: Infinity, delay: ring * 0.45 }}
           />
         ))}
       </div>
-      {/* Floating contact icons */}
-      {["📧","📞","💬","📍"].map((icon, i) => (
-        <motion.div
-          key={icon}
-          className="absolute text-2xl opacity-10"
-          style={{ left: `${15 + i * 20}%`, top: `${75 + (i % 2) * 10}%` }}
-          animate={{ y: [0, -10, 0], rotate: [0, 10, 0] }}
-          transition={{ duration: 3 + i * 0.5, repeat: Infinity, delay: i * 0.5 }}
-        >
-          {icon}
-        </motion.div>
-      ))}
+
+      {/* Envelope shape */}
+      <motion.div
+        className="absolute left-[68%] top-[20%]"
+        animate={{ y: [0, -8, 0], rotate: [-3, 3, -3] }}
+        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+      >
+        <div className="w-12 h-8 rounded border border-white/15 bg-white/5 relative overflow-hidden">
+          <div className="absolute inset-0 flex items-start justify-center">
+            <div className="w-full h-0 border-l-[24px] border-r-[24px] border-t-[14px] border-l-transparent border-r-transparent border-t-white/10" />
+          </div>
+        </div>
+      </motion.div>
+
+      {/* Location pin shape */}
+      <motion.div
+        className="absolute left-[72%] bottom-[25%]"
+        animate={{ y: [0, -6, 0] }}
+        transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+      >
+        <div className="w-6 h-6 rounded-full border-2 border-red-400/30 bg-red-500/10 flex items-center justify-center">
+          <div className="w-2 h-2 rounded-full bg-red-400/50" />
+        </div>
+        <div className="w-0 h-0 border-l-[6px] border-r-[6px] border-t-[8px] border-l-transparent border-r-transparent border-t-red-400/30 mx-auto" />
+      </motion.div>
+
+      {/* Dot grid */}
+      <div className="absolute inset-0"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
     </>
   );
 }

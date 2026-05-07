@@ -54,14 +54,16 @@ export default function Navbar() {
               <Image src="/logo.png" alt="DC Solution" width={52} height={52} className="object-contain" priority />
               {/* Desktop: DITAMA / Cargo Solution */}
               <div className="hidden sm:block">
-                <div className={`font-sora font-bold text-base leading-none transition-colors duration-300 ${
+                <div className={`font-sora font-black text-base leading-none transition-colors duration-300 ${
                   scrolled || !isHeroPage ? "text-brand-navy" : "text-white"
                 }`}>DITAMA</div>
-                <div className="text-brand-red text-[10px] tracking-widest uppercase leading-none mt-0.5 font-inter">
-                  Cargo Solution
+                <div className={`font-sora font-bold text-sm leading-none mt-0.5 transition-colors duration-300 ${
+                  scrolled || !isHeroPage ? "text-brand-red" : "text-red-300"
+                }`}>
+                  CARGO SOLUTION
                 </div>
               </div>
-              {/* Mobile: PT. DITAMA CARGO LOGISTIK with animated reveal */}
+              {/* Mobile: PT. DITAMA CARGO LOGISTIK */}
               <div className="sm:hidden">
                 <motion.div
                   initial={{ opacity: 0, x: -8 }}

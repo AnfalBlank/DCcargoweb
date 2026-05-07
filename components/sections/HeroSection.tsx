@@ -102,13 +102,15 @@ export default function HeroSection() {
                 Kirim Sekarang <ArrowRight className="w-4 h-4" />
               </motion.span>
             </Link>
-            <Link href="/contact" className="w-full">
-              <motion.span whileTap={{ scale: 0.96 }}
-                className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-white text-sm border border-white/25 hover:bg-white/10 transition-all cursor-pointer w-full"
-              >
-                Hubungi Kami
-              </motion.span>
-            </Link>
+            <motion.a
+              href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin mengetahui lebih lanjut tentang layanan pengiriman. Bisa bantu saya?")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileTap={{ scale: 0.96 }}
+              className="flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-white text-sm border border-white/25 hover:bg-white/10 transition-all cursor-pointer w-full"
+            >
+              Hubungi Kami
+            </motion.a>
           </motion.div>
 
           {/* Stats */}
@@ -177,13 +179,15 @@ export default function HeroSection() {
                   Kirim Sekarang <ArrowRight className="w-5 h-5" />
                 </motion.span>
               </Link>
-              <Link href="/contact">
-                <motion.span whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
-                  className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white border border-white/25 hover:bg-white/10 transition-all cursor-pointer"
-                >
-                  Hubungi Kami
-                </motion.span>
-              </Link>
+              <motion.a
+                href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin mengetahui lebih lanjut tentang layanan pengiriman. Bisa bantu saya?")}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
+                className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white border border-white/25 hover:bg-white/10 transition-all cursor-pointer"
+              >
+                Hubungi Kami
+              </motion.a>
             </motion.div>
 
             {/* Stats */}

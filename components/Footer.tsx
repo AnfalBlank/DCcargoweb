@@ -36,8 +36,29 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
   return (
-    <footer className="bg-brand-navy">
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+    <footer className="relative bg-[#060D1F] overflow-hidden">
+      {/* ── Background layers ── */}
+      {/* Radial gradient center glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_-10%,rgba(30,58,138,0.35),transparent)]" />
+      {/* Red accent bottom-left */}
+      <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-red-700/15 rounded-full blur-3xl" />
+      {/* Blue accent top-right */}
+      <div className="absolute -top-10 -right-10 w-72 h-72 bg-blue-800/20 rounded-full blur-3xl" />
+      {/* Dot grid pattern */}
+      <div className="absolute inset-0"
+        style={{
+          backgroundImage: "radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px)",
+          backgroundSize: "28px 28px",
+        }}
+      />
+      {/* Subtle diagonal lines */}
+      <div className="absolute inset-0 opacity-[0.03]"
+        style={{
+          backgroundImage: "repeating-linear-gradient(45deg, #ffffff 0, #ffffff 1px, transparent 0, transparent 50%)",
+          backgroundSize: "20px 20px",
+        }}
+      />
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
 
         {/* ── Top divider accent ── */}
         <div className="h-1 bg-gradient-to-r from-brand-red via-white/20 to-brand-blue rounded-full mb-0" />

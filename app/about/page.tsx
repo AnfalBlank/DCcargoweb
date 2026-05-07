@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 grid-pattern opacity-20" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <span className="text-orange-400 text-sm font-medium">Tentang Kami</span>
+            <span className="text-red-500 text-sm font-medium">Tentang Kami</span>
           </div>
           <h1 className="font-sora font-black text-4xl sm:text-5xl text-white mb-3">
             Siapa <span className="gradient-text">Ditama Cargo?</span>

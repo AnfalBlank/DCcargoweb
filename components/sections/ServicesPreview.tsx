@@ -6,10 +6,10 @@ import { Truck, Ship, Plane, Zap, Clock, Warehouse, Home, MapPin, ArrowRight } f
 import Link from "next/link";
 
 const services = [
-  { icon: Truck, title: "Cargo Darat", desc: "Pengiriman via jalur darat ke seluruh Jawa, Sumatera & Kalimantan.", color: "from-orange-500 to-orange-700" },
+  { icon: Truck, title: "Cargo Darat", desc: "Pengiriman via jalur darat ke seluruh Jawa, Sumatera & Kalimantan.", color: "from-red-600 to-red-800" },
   { icon: Ship, title: "Cargo Laut", desc: "Solusi antar pulau dengan kapal cargo terpercaya.", color: "from-blue-500 to-blue-700" },
   { icon: Plane, title: "Cargo Udara", desc: "Pengiriman express via udara ke seluruh Indonesia.", color: "from-purple-500 to-purple-700" },
-  { icon: Zap, title: "Same Day", desc: "Pengiriman di hari yang sama untuk area tertentu.", color: "from-yellow-500 to-orange-500" },
+  { icon: Zap, title: "Same Day", desc: "Pengiriman di hari yang sama untuk area tertentu.", color: "from-yellow-500 to-red-600" },
   { icon: Clock, title: "Express Delivery", desc: "Garansi tiba tepat waktu dengan prioritas tinggi.", color: "from-red-500 to-red-700" },
   { icon: Warehouse, title: "Warehouse", desc: "Pergudangan modern dengan sistem manajemen digital.", color: "from-green-500 to-green-700" },
 ];
@@ -31,8 +31,8 @@ export default function ServicesPreview() {
           className="text-center mb-12"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <Truck className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-400 text-sm font-medium">Layanan Kami</span>
+            <Truck className="w-4 h-4 text-red-500" />
+            <span className="text-red-500 text-sm font-medium">Layanan Kami</span>
           </div>
           <h2 className="font-sora font-black text-3xl sm:text-4xl lg:text-5xl text-white mb-4">
             Solusi Pengiriman <span className="gradient-text">Lengkap</span>
@@ -54,7 +54,7 @@ export default function ServicesPreview() {
               <div className={`w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-gradient-to-br ${service.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
                 <service.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </div>
-              <h3 className="font-sora font-bold text-base sm:text-lg text-white mb-2 group-hover:text-orange-400 transition-colors duration-300">
+              <h3 className="font-sora font-bold text-base sm:text-lg text-white mb-2 group-hover:text-red-500 transition-colors duration-300">
                 {service.title}
               </h3>
               <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">{service.desc}</p>

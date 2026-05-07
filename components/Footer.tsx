@@ -38,7 +38,7 @@ export default function Footer() {
   return (
     <footer className="relative overflow-hidden bg-[#010314] border-t border-white/5">
       <div className="absolute inset-0 grid-pattern opacity-10" />
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-orange-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[200px] bg-red-600/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Main grid — 1 col mobile, 2 col tablet, 5 col desktop */}
@@ -56,7 +56,7 @@ export default function Footer() {
               />
               <div>
                 <div className="font-sora font-bold text-white text-lg leading-none">PT. DITAMA</div>
-                <div className="font-inter text-orange-400 text-xs tracking-widest uppercase mt-0.5">
+                <div className="font-inter text-red-500 text-xs tracking-widest uppercase mt-0.5">
                   Cargo Solution
                 </div>
               </div>
@@ -72,17 +72,17 @@ export default function Footer() {
                 href={WA_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-start gap-3 text-gray-500 text-sm hover:text-orange-400 transition-colors group"
+                className="flex items-start gap-3 text-gray-500 text-sm hover:text-red-500 transition-colors group"
               >
-                <Phone className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <Phone className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
                 <span>+62 821-7798-1028</span>
               </a>
               <div className="flex items-start gap-3 text-gray-500 text-sm">
-                <Mail className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <Mail className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
                 <span>info@ditamacargo.id</span>
               </div>
               <div className="flex items-start gap-3 text-gray-500 text-sm">
-                <MapPin className="w-4 h-4 text-orange-400 flex-shrink-0 mt-0.5" />
+                <MapPin className="w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" />
                 <span className="leading-relaxed">
                   Bandar Udara Internasional Soekarno–Hatta,<br />
                   Komplek Terminal Kargo,<br />
@@ -100,7 +100,7 @@ export default function Footer() {
                   key={i}
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-9 h-9 rounded-lg glass border border-white/10 flex items-center justify-center hover:border-orange-500/30 hover:bg-orange-500/10 transition-all duration-300"
+                  className="w-9 h-9 rounded-lg glass border border-white/10 flex items-center justify-center hover:border-red-600/30 hover:bg-red-600/10 transition-all duration-300"
                 >
                   <Icon className="w-4 h-4 text-gray-400" />
                 </motion.button>
@@ -117,7 +117,7 @@ export default function Footer() {
                   <li key={link.label}>
                     <Link
                       href={link.href}
-                      className="text-gray-500 text-sm hover:text-orange-400 transition-colors duration-200 block"
+                      className="text-gray-500 text-sm hover:text-red-500 transition-colors duration-200 block"
                     >
                       {link.label}
                     </Link>
@@ -137,7 +137,7 @@ export default function Footer() {
             whileHover={{ scale: 1.1, y: -2 }}
             whileTap={{ scale: 0.9 }}
             onClick={scrollToTop}
-            className="w-9 h-9 rounded-lg bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center shadow-orange-glow"
+            className="w-9 h-9 rounded-lg bg-gradient-to-br from-red-600 to-blue-700 flex items-center justify-center shadow-red-glow"
             aria-label="Scroll to top"
           >
             <ArrowUp className="w-4 h-4 text-white" />

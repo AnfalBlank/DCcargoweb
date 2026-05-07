@@ -98,13 +98,13 @@ function CentralOrb() {
       <mesh ref={meshRef} position={[0, 0, 0]}>
         <sphereGeometry args={[1.5, 64, 64]} />
         <MeshDistortMaterial
-          color="#F97316"
+          color="#DC2626"
           attach="material"
           distort={0.15}
           speed={1.5}
           roughness={0.05}
           metalness={0.9}
-          emissive="#F97316"
+          emissive="#DC2626"
           emissiveIntensity={0.15}
           transparent
           opacity={0.85}
@@ -144,7 +144,7 @@ function ParticleField() {
       </bufferGeometry>
       <pointsMaterial
         size={0.05}
-        color="#F97316"
+        color="#DC2626"
         transparent
         opacity={0.6}
         sizeAttenuation
@@ -163,7 +163,7 @@ export default function CargoScene() {
       >
         <Suspense fallback={null}>
           <ambientLight intensity={0.3} />
-          <pointLight position={[5, 5, 5]} intensity={1} color="#F97316" />
+          <pointLight position={[5, 5, 5]} intensity={1} color="#DC2626" />
           <pointLight position={[-5, -5, -5]} intensity={0.5} color="#EF4444" />
           <pointLight position={[0, 5, 0]} intensity={0.8} color="#ffffff" />
 
@@ -171,14 +171,14 @@ export default function CargoScene() {
           <ParticleField />
 
           <CentralOrb />
-          <RotatingRing position={[0, 0, 0]} color="#F97316" />
+          <RotatingRing position={[0, 0, 0]} color="#DC2626" />
           
-          <FloatingBox position={[-3.5, 1.5, -1]} color="#F97316" scale={0.8} />
+          <FloatingBox position={[-3.5, 1.5, -1]} color="#DC2626" scale={0.8} />
           <FloatingBox position={[3.5, -1, -2]} color="#EF4444" scale={0.6} />
-          <FloatingBox position={[-2.5, -2, 1]} color="#FB923C" scale={0.5} />
+          <FloatingBox position={[-2.5, -2, 1]} color="#1D4ED8" scale={0.5} />
           <FloatingBox position={[2.5, 2, 0]} color="#DC2626" scale={0.7} />
 
-          <GlowingSphere position={[-4, 0, -3]} color="#F97316" />
+          <GlowingSphere position={[-4, 0, -3]} color="#DC2626" />
           <GlowingSphere position={[4, 1, -2]} color="#EF4444" />
 
           <Environment preset="night" />

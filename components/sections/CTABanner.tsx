@@ -10,12 +10,12 @@ export default function CTABanner() {
 
   return (
     <section className="py-16 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 via-red-600/20 to-orange-600/20" />
+      <div className="absolute inset-0 bg-gradient-to-r from-red-700/20 via-red-600/20 to-red-700/20" />
       <div className="absolute inset-0 grid-pattern opacity-20" />
       <motion.div
         animate={{ x: ["-100%", "100%"] }}
         transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-        className="absolute inset-0 bg-gradient-to-r from-transparent via-orange-500/10 to-transparent"
+        className="absolute inset-0 bg-gradient-to-r from-transparent via-red-600/10 to-transparent"
       />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -29,7 +29,7 @@ export default function CTABanner() {
           <motion.div
             animate={{ y: [0, -10, 0] }}
             transition={{ duration: 3, repeat: Infinity }}
-            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center mx-auto mb-5 shadow-orange-glow-lg"
+            className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-gradient-to-br from-red-600 to-blue-700 flex items-center justify-center mx-auto mb-5 shadow-red-glow-lg"
           >
             <Truck className="w-8 h-8 sm:w-10 sm:h-10 text-white" />
           </motion.div>
@@ -46,7 +46,7 @@ export default function CTABanner() {
               <motion.span
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white shadow-orange-glow cursor-pointer w-full sm:w-auto"
+                className="btn-primary flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white shadow-red-glow cursor-pointer w-full sm:w-auto"
               >
                 Kirim Sekarang
                 <ArrowRight className="w-5 h-5" />

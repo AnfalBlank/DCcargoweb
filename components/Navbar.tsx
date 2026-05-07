@@ -56,7 +56,7 @@ export default function Navbar() {
               />
               <div className="hidden sm:block">
                 <div className="font-sora font-bold text-white text-base leading-none">DITAMA</div>
-                <div className="font-inter text-orange-400 text-[10px] tracking-widest uppercase leading-none mt-0.5">
+                <div className="font-inter text-red-500 text-[10px] tracking-widest uppercase leading-none mt-0.5">
                   Cargo Solution
                 </div>
               </div>
@@ -72,7 +72,7 @@ export default function Navbar() {
                   whileTap={{ scale: 0.95 }}
                   className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 cursor-pointer ${
                     pathname === link.href
-                      ? "text-orange-400 bg-orange-500/10"
+                      ? "text-red-500 bg-red-600/10"
                       : "text-gray-300 hover:text-white hover:bg-white/5"
                   }`}
                 >
@@ -88,7 +88,7 @@ export default function Navbar() {
               <motion.span
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="block px-4 py-2 text-sm font-medium text-orange-400 border border-orange-500/40 rounded-xl hover:bg-orange-500/10 transition-all duration-300 cursor-pointer"
+                className="block px-4 py-2 text-sm font-medium text-red-500 border border-red-600/40 rounded-xl hover:bg-red-600/10 transition-all duration-300 cursor-pointer"
               >
                 Track Paket
               </motion.span>
@@ -138,7 +138,7 @@ export default function Navbar() {
                     <span
                       className={`block px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 cursor-pointer ${
                         pathname === link.href
-                          ? "text-orange-400 bg-orange-500/10"
+                          ? "text-red-500 bg-red-600/10"
                           : "text-gray-300 hover:text-white hover:bg-white/5"
                       }`}
                     >

@@ -26,7 +26,7 @@ export default function MobileBottomBar() {
               <motion.div
                 whileTap={{ scale: 0.85 }}
                 className={`flex flex-col items-center gap-1 py-1 px-2 rounded-xl transition-all duration-300 ${
-                  isActive ? "text-orange-400" : "text-gray-500"
+                  isActive ? "text-red-500" : "text-gray-500"
                 }`}
               >
                 {/* Active indicator dot */}
@@ -34,26 +34,26 @@ export default function MobileBottomBar() {
                   {isActive && (
                     <motion.div
                       layoutId="bottomBarIndicator"
-                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-orange-400 rounded-full"
+                      className="absolute -top-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-red-500 rounded-full"
                     />
                   )}
                   <div
                     className={`p-1.5 rounded-xl transition-all duration-300 ${
                       isActive
-                        ? "bg-orange-500/15 shadow-orange-glow"
+                        ? "bg-red-600/15 shadow-red-glow"
                         : "bg-transparent"
                     }`}
                   >
                     <item.icon
                       className={`w-5 h-5 transition-all duration-300 ${
-                        isActive ? "text-orange-400" : "text-gray-500"
+                        isActive ? "text-red-500" : "text-gray-500"
                       }`}
                     />
                   </div>
                 </div>
                 <span
                   className={`text-[10px] font-medium leading-none transition-all duration-300 ${
-                    isActive ? "text-orange-400" : "text-gray-600"
+                    isActive ? "text-red-500" : "text-gray-600"
                   }`}
                 >
                   {item.label}

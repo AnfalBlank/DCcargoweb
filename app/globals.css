@@ -5,8 +5,9 @@
 @tailwind utilities;
 
 :root {
-  --orange: #F97316;
-  --red: #EF4444;
+  --primary: #DC2626;   /* red-600 */
+  --secondary: #1D4ED8; /* blue-700 */
+  --accent: #EF4444;    /* red-500 */
   --navy: #0F172A;
   --dark: #020617;
 }
@@ -29,14 +30,10 @@ body {
 }
 
 /* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: #020617;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #020617; }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(180deg, #F97316, #EF4444);
+  background: linear-gradient(180deg, #DC2626, #1D4ED8);
   border-radius: 3px;
 }
 
@@ -49,139 +46,84 @@ body {
 }
 
 .glass-dark {
-  background: rgba(2, 6, 23, 0.8);
+  background: rgba(2, 6, 23, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* Orange glow text */
+/* Glow text */
 .text-glow {
-  text-shadow: 0 0 30px rgba(249, 115, 22, 0.6);
+  text-shadow: 0 0 30px rgba(220, 38, 38, 0.7);
 }
 
-.text-glow-red {
-  text-shadow: 0 0 30px rgba(239, 68, 68, 0.6);
+.text-glow-blue {
+  text-shadow: 0 0 30px rgba(29, 78, 216, 0.7);
 }
 
-/* Gradient text */
+/* Gradient text — red to blue */
 .gradient-text {
-  background: linear-gradient(135deg, #F97316 0%, #EF4444 100%);
+  background: linear-gradient(135deg, #EF4444 0%, #1D4ED8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Neon border */
+/* Neon border — red tint */
 .neon-border {
-  border: 1px solid rgba(249, 115, 22, 0.4);
-  box-shadow: 0 0 20px rgba(249, 115, 22, 0.1), inset 0 0 20px rgba(249, 115, 22, 0.05);
+  border: 1px solid rgba(220, 38, 38, 0.4);
+  box-shadow: 0 0 20px rgba(220, 38, 38, 0.08), inset 0 0 20px rgba(220, 38, 38, 0.04);
 }
 
 /* Animated gradient background */
 .animated-bg {
-  background: linear-gradient(-45deg, #020617, #0F172A, #1a0500, #0F172A);
+  background: linear-gradient(-45deg, #020617, #0F172A, #1a0000, #00001a);
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
 }
 
 @keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
-}
-
-/* Particle dots */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  animation: particleFloat linear infinite;
-}
-
-@keyframes particleFloat {
-  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
-}
-
-/* Card hover effect */
-.card-hover {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 60px rgba(249, 115, 22, 0.2);
-}
-
-/* Button styles */
-.btn-primary {
-  background: linear-gradient(135deg, #F97316 0%, #EF4444 100%);
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-primary::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.btn-primary:hover::before {
-  left: 100%;
-}
-
-.btn-primary:hover {
-  box-shadow: 0 0 30px rgba(249, 115, 22, 0.5);
-  transform: translateY(-2px);
-}
-
-/* Section reveal */
-.reveal {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Grid pattern */
 .grid-pattern {
-  background-image: 
-    linear-gradient(rgba(249, 115, 22, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(29, 78, 216, 0.04) 1px, transparent 1px);
   background-size: 50px 50px;
 }
 
-/* Floating WhatsApp */
-.whatsapp-float {
-  animation: whatsappPulse 2s ease-in-out infinite;
+/* Card hover */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 60px rgba(220, 38, 38, 0.15);
 }
 
-@keyframes whatsappPulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-  50% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+/* Primary button — red gradient */
+.btn-primary {
+  background: linear-gradient(135deg, #DC2626 0%, #1D4ED8 100%);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
 }
-
-/* Timeline */
-.timeline-line {
-  background: linear-gradient(180deg, #F97316, #EF4444, transparent);
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transition: left 0.5s ease;
 }
-
-/* Stats counter */
-.stat-card {
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(239, 68, 68, 0.05) 100%);
-  border: 1px solid rgba(249, 115, 22, 0.2);
+.btn-primary:hover::before { left: 100%; }
+.btn-primary:hover {
+  box-shadow: 0 0 30px rgba(220, 38, 38, 0.45);
+  transform: translateY(-2px);
 }
 
 /* Service card */
@@ -190,12 +132,17 @@ body {
   border: 1px solid rgba(255,255,255,0.08);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .service-card:hover {
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(239, 68, 68, 0.08) 100%);
-  border-color: rgba(249, 115, 22, 0.4);
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.12) 0%, rgba(29, 78, 216, 0.08) 100%);
+  border-color: rgba(220, 38, 38, 0.35);
   transform: translateY(-10px);
-  box-shadow: 0 20px 60px rgba(249, 115, 22, 0.15);
+  box-shadow: 0 20px 60px rgba(220, 38, 38, 0.12);
+}
+
+/* Stat card */
+.stat-card {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.08) 0%, rgba(29, 78, 216, 0.05) 100%);
+  border: 1px solid rgba(220, 38, 38, 0.18);
 }
 
 /* Testimonial card */
@@ -204,31 +151,32 @@ body {
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-/* Map glow */
-.map-glow {
-  filter: drop-shadow(0 0 20px rgba(249, 115, 22, 0.4));
+/* Floating WhatsApp pulse */
+.whatsapp-float {
+  animation: whatsappPulse 2s ease-in-out infinite;
 }
+@keyframes whatsappPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+  50%       { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+}
+
+/* Glow shadows */
+.shadow-red-glow    { box-shadow: 0 0 30px rgba(220, 38, 38, 0.35); }
+.shadow-red-glow-lg { box-shadow: 0 0 60px rgba(220, 38, 38, 0.45); }
+.shadow-blue-glow   { box-shadow: 0 0 30px rgba(29, 78, 216, 0.35); }
 
 /* Safe area for mobile bottom bar */
 .safe-area-bottom {
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
-/* Mobile bottom bar height compensation */
-@media (max-width: 768px) {
-  .whatsapp-float-mobile {
-    bottom: 5rem;
-  }
-}
-
 /* Loading animation */
 .loading-bar {
-  background: linear-gradient(90deg, #F97316, #EF4444, #F97316);
+  background: linear-gradient(90deg, #DC2626, #1D4ED8, #DC2626);
   background-size: 200% 100%;
   animation: loadingSlide 1.5s ease infinite;
 }
-
 @keyframes loadingSlide {
-  0% { background-position: 200% 0; }
+  0%   { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }

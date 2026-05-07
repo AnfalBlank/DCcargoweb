@@ -59,8 +59,8 @@ export default function ContactSection() {
       label: "WhatsApp / Telepon",
       value: "+62 821-7798-1028",
       sub: "Senin - Sabtu, 08:00 - 20:00",
-      color: "text-orange-400",
-      bg: "bg-orange-400/10",
+      color: "text-red-500",
+      bg: "bg-red-500/10",
       href: `https://wa.me/${WA_NUMBER}?text=${WA_CONTACT_MSG}`,
     },
     {
@@ -96,7 +96,7 @@ export default function ContactSection() {
     <section className="py-12 relative overflow-hidden" ref={ref}>
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 to-[#010314]" />
       <div className="absolute inset-0 grid-pattern opacity-10" />
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-orange-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-red-600/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-10">
@@ -123,7 +123,7 @@ export default function ContactSection() {
                   initial={{ opacity: 0, x: -30 }}
                   animate={inView ? { opacity: 1, x: 0 } : {}}
                   transition={{ duration: 0.6, delay: i * 0.1 }}
-                  className="glass border border-white/8 rounded-2xl p-4 hover:border-orange-500/30 transition-all duration-300"
+                  className="glass border border-white/8 rounded-2xl p-4 hover:border-red-600/30 transition-all duration-300"
                 >
                   {info.href ? (
                     <a href={info.href} target="_blank" rel="noopener noreferrer" className="block">
@@ -205,7 +205,7 @@ export default function ContactSection() {
                 <p className="text-gray-400 text-sm">Anda akan diarahkan ke WhatsApp kami. Tim kami siap membantu!</p>
                 <button
                   onClick={() => setSubmitted(false)}
-                  className="mt-6 text-orange-400 text-sm hover:underline"
+                  className="mt-6 text-red-500 text-sm hover:underline"
                 >
                   Kirim pesan lain
                 </button>
@@ -223,7 +223,7 @@ export default function ContactSection() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder="John Doe"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/50 transition-all duration-300 text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm"
                     />
                   </div>
                   <div>
@@ -234,7 +234,7 @@ export default function ContactSection() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder="08123456789"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/50 transition-all duration-300 text-sm"
+                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm"
                     />
                   </div>
                 </div>
@@ -246,7 +246,7 @@ export default function ContactSection() {
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="email@example.com"
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/50 transition-all duration-300 text-sm"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm"
                   />
                 </div>
 
@@ -255,7 +255,7 @@ export default function ContactSection() {
                   <select
                     value={formData.service}
                     onChange={(e) => setFormData({ ...formData, service: e.target.value })}
-                    className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-orange-500/50 transition-all duration-300 text-sm"
+                    className="w-full bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm"
                   >
                     <option value="">Pilih layanan...</option>
                     <option value="Cargo Darat">Cargo Darat</option>
@@ -276,7 +276,7 @@ export default function ContactSection() {
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                     placeholder="Ceritakan kebutuhan pengiriman Anda (asal, tujuan, jenis barang, berat, dll)..."
-                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-orange-500/50 transition-all duration-300 text-sm resize-none"
+                    className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm resize-none"
                   />
                 </div>
 
@@ -316,7 +316,7 @@ export default function ContactSection() {
         >
           <div className="absolute inset-0 bg-gradient-to-br from-navy-900 to-navy-950 flex items-center justify-center px-4">
             <div className="text-center">
-              <MapPin className="w-10 h-10 text-orange-400 mx-auto mb-3 animate-bounce" />
+              <MapPin className="w-10 h-10 text-red-500 mx-auto mb-3 animate-bounce" />
               <div className="text-white font-semibold text-sm sm:text-base">Terminal Kargo Bandara Soekarno-Hatta</div>
               <div className="text-gray-400 text-xs sm:text-sm mt-1 max-w-sm mx-auto leading-relaxed">
                 Jl. Cengkareng Golf Club, RT.001/RW.010, Pajang,<br className="hidden sm:block" />
@@ -327,7 +327,7 @@ export default function ContactSection() {
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-xl bg-orange-500/20 border border-orange-500/30 text-orange-400 text-sm font-medium hover:bg-orange-500/30 transition-all duration-300"
+                className="inline-flex items-center gap-2 mt-4 px-5 py-2 rounded-xl bg-red-600/20 border border-red-600/30 text-red-500 text-sm font-medium hover:bg-red-600/30 transition-all duration-300"
               >
                 Buka di Google Maps
               </motion.a>

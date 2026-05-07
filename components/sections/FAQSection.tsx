@@ -29,14 +29,14 @@ function FAQCard({ item, index, isOpen, onToggle }: {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, delay: index * 0.07 }}
       className={`glass border rounded-2xl overflow-hidden transition-all duration-300 ${
-        isOpen ? "border-orange-500/40" : "border-white/8 hover:border-white/15"
+        isOpen ? "border-red-600/40" : "border-white/8 hover:border-white/15"
       }`}
     >
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left"
       >
-        <span className={`font-medium text-sm sm:text-base leading-snug transition-colors duration-300 ${isOpen ? "text-orange-400" : "text-white"}`}>
+        <span className={`font-medium text-sm sm:text-base leading-snug transition-colors duration-300 ${isOpen ? "text-red-500" : "text-white"}`}>
           {item.q}
         </span>
         <motion.div
@@ -44,7 +44,7 @@ function FAQCard({ item, index, isOpen, onToggle }: {
           transition={{ duration: 0.3 }}
           className="flex-shrink-0"
         >
-          <ChevronDown className={`w-5 h-5 transition-colors duration-300 ${isOpen ? "text-orange-400" : "text-gray-500"}`} />
+          <ChevronDown className={`w-5 h-5 transition-colors duration-300 ${isOpen ? "text-red-500" : "text-gray-500"}`} />
         </motion.div>
       </button>
 
@@ -99,8 +99,8 @@ export default function FAQSection({ faqs, title = "Pertanyaan yang Sering Ditan
           className="text-center mb-10"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <HelpCircle className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-400 text-sm font-medium">FAQ</span>
+            <HelpCircle className="w-4 h-4 text-red-500" />
+            <span className="text-red-500 text-sm font-medium">FAQ</span>
           </div>
           <h2 className="font-sora font-black text-3xl sm:text-4xl text-white mb-3">
             {title.split(" ").slice(0, -2).join(" ")}{" "}

@@ -12,7 +12,7 @@ const stats = [
     suffix: "+",
     label: "Paket Terkirim",
     description: "Berhasil dikirim ke seluruh Indonesia",
-    color: "from-orange-500 to-orange-700",
+    color: "from-red-600 to-red-800",
   },
   {
     icon: Clock,
@@ -28,7 +28,7 @@ const stats = [
     suffix: "/7",
     label: "Customer Support",
     description: "Siap membantu kapan saja Anda butuhkan",
-    color: "from-orange-400 to-red-500",
+    color: "from-red-400 to-red-600",
   },
   {
     icon: MapPin,
@@ -36,7 +36,7 @@ const stats = [
     suffix: "+",
     label: "Kota Terjangkau",
     description: "Jangkauan pengiriman seluruh Indonesia",
-    color: "from-red-600 to-orange-600",
+    color: "from-red-700 to-red-600",
   },
 ];
 
@@ -99,7 +99,7 @@ export default function StatsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 to-navy-900/80" />
 
       {/* Animated background elements */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl animate-pulse" />
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-red-600/10 rounded-full blur-3xl animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-red-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -112,8 +112,8 @@ export default function StatsSection() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-            <span className="text-orange-400 text-sm font-medium">Pencapaian Kami</span>
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+            <span className="text-red-500 text-sm font-medium">Pencapaian Kami</span>
           </div>
           <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-4">
             Angka yang{" "}

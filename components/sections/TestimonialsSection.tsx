@@ -13,7 +13,7 @@ const testimonials = [
     avatar: "BS",
     rating: 5,
     text: "Ditama Cargo benar-benar mengubah cara saya mengelola pengiriman produk batik. Paket selalu tiba tepat waktu dan kondisi sempurna. Pelanggan saya pun semakin puas!",
-    color: "from-orange-500 to-orange-700",
+    color: "from-red-600 to-red-800",
   },
   {
     name: "Siti Rahayu",
@@ -71,7 +71,7 @@ export default function TestimonialsSection() {
       <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/30 to-navy-950" />
 
       {/* Decorative elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-red-600/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
@@ -83,8 +83,8 @@ export default function TestimonialsSection() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <Star className="w-4 h-4 text-orange-400 fill-orange-400" />
-            <span className="text-orange-400 text-sm font-medium">Testimoni Pelanggan</span>
+            <Star className="w-4 h-4 text-red-500 fill-red-500" />
+            <span className="text-red-500 text-sm font-medium">Testimoni Pelanggan</span>
           </div>
           <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-4">
             Apa Kata{" "}
@@ -103,15 +103,15 @@ export default function TestimonialsSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="testimonial-card rounded-2xl p-6 relative group hover:border-orange-500/30 transition-all duration-300 hover:-translate-y-2"
+              className="testimonial-card rounded-2xl p-6 relative group hover:border-red-600/30 transition-all duration-300 hover:-translate-y-2"
             >
               {/* Quote icon */}
-              <Quote className="w-8 h-8 text-orange-500/30 mb-4" />
+              <Quote className="w-8 h-8 text-red-600/30 mb-4" />
 
               {/* Stars */}
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-orange-400 fill-orange-400" />
+                  <Star key={i} className="w-4 h-4 text-red-500 fill-red-500" />
                 ))}
               </div>
 
@@ -130,14 +130,14 @@ export default function TestimonialsSection() {
                   <div className="text-gray-500 text-xs">{testimonial.role}</div>
                 </div>
                 <div className="ml-auto">
-                  <span className="text-xs px-2 py-1 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                  <span className="text-xs px-2 py-1 rounded-full bg-red-600/10 text-red-500 border border-red-600/20">
                     {testimonial.type}
                   </span>
                 </div>
               </div>
 
               {/* Hover glow */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-orange-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-red-600/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </motion.div>
           ))}
         </div>
@@ -153,7 +153,7 @@ export default function TestimonialsSection() {
             <div className="font-sora font-black text-6xl gradient-text">4.9</div>
             <div className="flex gap-1 justify-center mt-2">
               {[...Array(5)].map((_, i) => (
-                <Star key={i} className="w-5 h-5 text-orange-400 fill-orange-400" />
+                <Star key={i} className="w-5 h-5 text-red-500 fill-red-500" />
               ))}
             </div>
             <div className="text-gray-400 text-sm mt-1">Rating Keseluruhan</div>

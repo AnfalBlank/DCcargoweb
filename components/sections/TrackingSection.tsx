@@ -43,7 +43,7 @@ const mockTrackingData = {
 };
 
 const statusColors: Record<string, string> = {
-  "In Transit": "text-orange-400 bg-orange-400/10 border-orange-400/30",
+  "In Transit": "text-red-500 bg-red-500/10 border-red-500/30",
   "Delivered": "text-green-400 bg-green-400/10 border-green-400/30",
   "Processing": "text-blue-400 bg-blue-400/10 border-blue-400/30",
 };
@@ -80,7 +80,7 @@ export default function TrackingSection() {
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
       {/* Neon glow effects */}
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-500/8 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-red-600/8 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-red-500/8 rounded-full blur-3xl" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -92,7 +92,7 @@ export default function TrackingSection() {
           className="glass neon-border rounded-2xl p-6 mb-8"
         >
           <p className="text-gray-500 text-sm mb-4 text-center">
-            Demo — Coba resi: <button onClick={() => setResiInput("DC001234")} className="text-orange-400 hover:underline font-medium">DC001234</button> atau <button onClick={() => setResiInput("DC005678")} className="text-orange-400 hover:underline font-medium">DC005678</button>
+            Demo — Coba resi: <button onClick={() => setResiInput("DC001234")} className="text-red-500 hover:underline font-medium">DC001234</button> atau <button onClick={() => setResiInput("DC005678")} className="text-red-500 hover:underline font-medium">DC005678</button>
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 relative">
@@ -103,7 +103,7 @@ export default function TrackingSection() {
                 onChange={(e) => setResiInput(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleTrack()}
                 placeholder="Masukkan nomor resi (contoh: DC001234)"
-                className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 focus:bg-orange-500/5 transition-all duration-300 text-sm"
+                className="w-full bg-white/5 border border-white/10 rounded-xl pl-12 pr-4 py-4 text-white placeholder-gray-500 focus:outline-none focus:border-red-600/50 focus:bg-red-600/5 transition-all duration-300 text-sm"
               />
             </div>
             <motion.button
@@ -183,7 +183,7 @@ export default function TrackingSection() {
               {/* Timeline */}
               <div className="glass neon-border rounded-2xl p-6">
                 <h3 className="font-sora font-bold text-lg text-white mb-6 flex items-center gap-2">
-                  <Clock className="w-5 h-5 text-orange-400" />
+                  <Clock className="w-5 h-5 text-red-500" />
                   Riwayat Pengiriman
                 </h3>
                 <div className="space-y-0">
@@ -197,13 +197,13 @@ export default function TrackingSection() {
                     >
                       {/* Line */}
                       {i < trackingResult.timeline.length - 1 && (
-                        <div className={`absolute left-[18px] top-8 w-0.5 h-full ${step.done ? "bg-gradient-to-b from-orange-500 to-orange-500/50" : "bg-white/10"}`} />
+                        <div className={`absolute left-[18px] top-8 w-0.5 h-full ${step.done ? "bg-gradient-to-b from-red-600 to-red-600/50" : "bg-white/10"}`} />
                       )}
 
                       {/* Dot */}
                       <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 z-10 ${
                         step.done
-                          ? "bg-gradient-to-br from-orange-500 to-red-500 shadow-orange-glow"
+                          ? "bg-gradient-to-br from-red-600 to-red-500 shadow-red-glow"
                           : "bg-white/10 border border-white/20"
                       }`}>
                         {step.done ? (
@@ -221,7 +221,7 @@ export default function TrackingSection() {
                         <div className={`text-xs mt-0.5 ${step.done ? "text-gray-400" : "text-gray-600"}`}>
                           {step.location}
                         </div>
-                        <div className={`text-xs mt-0.5 ${step.done ? "text-orange-400" : "text-gray-600"}`}>
+                        <div className={`text-xs mt-0.5 ${step.done ? "text-red-500" : "text-gray-600"}`}>
                           {step.time}
                         </div>
                       </div>
@@ -240,8 +240,8 @@ export default function TrackingSection() {
             animate={{ opacity: 1 }}
             className="text-center py-12"
           >
-            <div className="w-24 h-24 rounded-full bg-orange-500/10 border border-orange-500/20 flex items-center justify-center mx-auto mb-4">
-              <Truck className="w-10 h-10 text-orange-400" />
+            <div className="w-24 h-24 rounded-full bg-red-600/10 border border-red-600/20 flex items-center justify-center mx-auto mb-4">
+              <Truck className="w-10 h-10 text-red-500" />
             </div>
             <p className="text-gray-500">Masukkan nomor resi untuk melacak paket Anda</p>
           </motion.div>

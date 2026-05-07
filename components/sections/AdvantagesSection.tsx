@@ -26,9 +26,9 @@ const advantages = [
     icon: MapPin,
     title: "Real-time Tracking",
     description: "Pantau perjalanan paket Anda secara real-time. Update status otomatis via WhatsApp dan email.",
-    color: "text-orange-400",
-    bg: "bg-orange-400/10",
-    border: "border-orange-400/20",
+    color: "text-red-500",
+    bg: "bg-red-500/10",
+    border: "border-red-500/20",
   },
   {
     icon: Star,
@@ -95,8 +95,8 @@ export default function AdvantagesSection() {
               transition={{ duration: 0.8 }}
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6">
-                <Star className="w-4 h-4 text-orange-400" />
-                <span className="text-orange-400 text-sm font-medium">Keunggulan Kami</span>
+                <Star className="w-4 h-4 text-red-500" />
+                <span className="text-red-500 text-sm font-medium">Keunggulan Kami</span>
               </div>
               <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-6">
                 Mengapa Memilih{" "}
@@ -121,7 +121,7 @@ export default function AdvantagesSection() {
                     transition={{ duration: 0.5, delay: 0.3 + i * 0.1 }}
                     className="flex items-center gap-3"
                   >
-                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded-full bg-gradient-to-br from-red-600 to-red-500 flex items-center justify-center flex-shrink-0">
                       <span className="text-white text-xs">✓</span>
                     </div>
                     <span className="text-gray-300">{item}</span>

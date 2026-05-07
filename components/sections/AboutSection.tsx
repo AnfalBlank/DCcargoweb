@@ -39,8 +39,8 @@ export default function AboutSection() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <Award className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-400 text-sm font-medium">Tentang Kami</span>
+            <Award className="w-4 h-4 text-red-500" />
+            <span className="text-red-500 text-sm font-medium">Tentang Kami</span>
           </div>
           <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-4">
             Siapa{" "}
@@ -58,7 +58,7 @@ export default function AboutSection() {
               icon: Eye,
               title: "Visi",
               content: "Menjadi perusahaan logistik cargo express terdepan di Indonesia yang dikenal atas kecepatan, keamanan, dan inovasi teknologi dalam setiap layanan pengiriman.",
-              color: "from-orange-500 to-orange-700",
+              color: "from-red-600 to-red-800",
             },
             {
               icon: Target,
@@ -100,10 +100,10 @@ export default function AboutSection() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={inView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.5, delay: 0.5 + i * 0.1 }}
-                className="glass rounded-2xl p-5 text-center group hover:border-orange-500/30 transition-all duration-300 border border-white/5"
+                className="glass rounded-2xl p-5 text-center group hover:border-red-600/30 transition-all duration-300 border border-white/5"
               >
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500/20 to-red-500/20 border border-orange-500/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
-                  <value.icon className="w-6 h-6 text-orange-400" />
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600/20 to-red-500/20 border border-red-600/20 flex items-center justify-center mx-auto mb-3 group-hover:scale-110 transition-transform duration-300">
+                  <value.icon className="w-6 h-6 text-red-500" />
                 </div>
                 <div className="font-semibold text-white mb-2">{value.title}</div>
                 <div className="text-gray-500 text-xs leading-relaxed">{value.desc}</div>
@@ -124,7 +124,7 @@ export default function AboutSection() {
 
           <div className="relative">
             {/* Center line */}
-            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-orange-500 via-red-500 to-transparent hidden md:block" />
+            <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-red-600 via-red-500 to-transparent hidden md:block" />
 
             <div className="space-y-8">
               {timeline.map((item, i) => (
@@ -144,7 +144,7 @@ export default function AboutSection() {
                   </div>
 
                   {/* Center dot */}
-                  <div className="hidden md:flex w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-500 items-center justify-center flex-shrink-0 shadow-orange-glow z-10">
+                  <div className="hidden md:flex w-10 h-10 rounded-full bg-gradient-to-br from-red-600 to-red-500 items-center justify-center flex-shrink-0 shadow-red-glow z-10">
                     <div className="w-3 h-3 bg-white rounded-full" />
                   </div>
 

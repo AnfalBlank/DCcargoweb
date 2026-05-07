@@ -16,7 +16,7 @@ const articles = [
     date: "5 Mei 2026",
     readTime: "5 menit",
     featured: true,
-    gradient: "from-orange-500 to-red-600",
+    gradient: "from-red-600 to-red-700",
     icon: Package,
     tags: ["Pengemasan", "Fragile", "Tips"],
   },
@@ -40,7 +40,7 @@ const articles = [
     date: "28 Apr 2026",
     readTime: "6 menit",
     featured: false,
-    gradient: "from-yellow-500 to-orange-600",
+    gradient: "from-yellow-500 to-red-600",
     icon: TrendingUp,
     tags: ["Biaya", "Kalkulasi", "Hemat"],
   },
@@ -92,7 +92,7 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
       initial={{ opacity: 0, y: 30 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.5, delay: index * 0.08 }}
-      className="glass border border-white/8 rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-2 hover:border-orange-500/30 transition-all duration-300 flex flex-col"
+      className="glass border border-white/8 rounded-2xl overflow-hidden group cursor-pointer hover:-translate-y-2 hover:border-red-600/30 transition-all duration-300 flex flex-col"
     >
       {/* Thumbnail */}
       <div className={`h-44 bg-gradient-to-br ${article.gradient} relative overflow-hidden flex-shrink-0`}>
@@ -117,20 +117,20 @@ function ArticleCard({ article, index }: { article: typeof articles[0]; index: n
         {/* Tags */}
         <div className="flex flex-wrap gap-1.5 mb-3">
           {article.tags.map((tag) => (
-            <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">
+            <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-red-600/10 text-red-500 border border-red-600/20">
               {tag}
             </span>
           ))}
         </div>
 
-        <h3 className="font-sora font-bold text-white text-sm leading-snug mb-2 group-hover:text-orange-400 transition-colors duration-300 line-clamp-2 flex-1">
+        <h3 className="font-sora font-bold text-white text-sm leading-snug mb-2 group-hover:text-red-500 transition-colors duration-300 line-clamp-2 flex-1">
           {article.title}
         </h3>
         <p className="text-gray-500 text-xs leading-relaxed mb-4 line-clamp-3">{article.excerpt}</p>
 
         <div className="flex items-center justify-between mt-auto pt-3 border-t border-white/5">
           <span className="text-gray-600 text-xs">{article.date}</span>
-          <span className="flex items-center gap-1 text-orange-400 text-xs font-medium group-hover:gap-2 transition-all duration-300">
+          <span className="flex items-center gap-1 text-red-500 text-xs font-medium group-hover:gap-2 transition-all duration-300">
             Baca <ArrowRight className="w-3 h-3" />
           </span>
         </div>
@@ -181,7 +181,7 @@ export default function BlogSection() {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Cari artikel..."
-              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-orange-500/50 transition-all duration-300 text-sm"
+              className="w-full bg-white/5 border border-white/10 rounded-xl pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-red-600/50 transition-all duration-300 text-sm"
             />
           </div>
 
@@ -194,8 +194,8 @@ export default function BlogSection() {
                 onClick={() => setActiveCategory(cat)}
                 className={`px-3 sm:px-4 py-1.5 sm:py-2 rounded-full text-xs sm:text-sm font-medium transition-all duration-300 ${
                   activeCategory === cat
-                    ? "bg-gradient-to-r from-orange-500 to-red-500 text-white shadow-orange-glow"
-                    : "glass border border-white/10 text-gray-400 hover:text-white hover:border-orange-500/30"
+                    ? "bg-gradient-to-r from-red-600 to-red-500 text-white shadow-red-glow"
+                    : "glass border border-white/10 text-gray-400 hover:text-white hover:border-red-600/30"
                 }`}
               >
                 {cat}
@@ -219,7 +219,7 @@ export default function BlogSection() {
                   <featuredArticle.icon className="w-28 h-28 text-white/15" />
                 </div>
                 <div className="absolute top-4 left-4 flex gap-2">
-                  <span className="px-3 py-1 bg-orange-500 rounded-full text-white text-xs font-semibold">
+                  <span className="px-3 py-1 bg-red-600 rounded-full text-white text-xs font-semibold">
                     Featured
                   </span>
                   <span className="px-3 py-1 bg-black/30 backdrop-blur-sm rounded-full text-white text-xs">
@@ -230,12 +230,12 @@ export default function BlogSection() {
               <div className="p-6 sm:p-8 flex flex-col justify-center">
                 <div className="flex flex-wrap gap-1.5 mb-3">
                   {featuredArticle.tags.map((tag) => (
-                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-orange-500/10 text-orange-400 border border-orange-500/20">
+                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-full bg-red-600/10 text-red-500 border border-red-600/20">
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 className="font-sora font-bold text-xl sm:text-2xl text-white mb-3 group-hover:text-orange-400 transition-colors duration-300">
+                <h3 className="font-sora font-bold text-xl sm:text-2xl text-white mb-3 group-hover:text-red-500 transition-colors duration-300">
                   {featuredArticle.title}
                 </h3>
                 <p className="text-gray-400 text-sm leading-relaxed mb-5 line-clamp-3">{featuredArticle.excerpt}</p>
@@ -247,7 +247,7 @@ export default function BlogSection() {
                       {featuredArticle.readTime}
                     </span>
                   </div>
-                  <span className="flex items-center gap-1 text-orange-400 text-sm font-medium group-hover:gap-2 transition-all duration-300">
+                  <span className="flex items-center gap-1 text-red-500 text-sm font-medium group-hover:gap-2 transition-all duration-300">
                     Baca <ArrowRight className="w-4 h-4" />
                   </span>
                 </div>
@@ -280,7 +280,7 @@ export default function BlogSection() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="glass neon-border px-8 py-3 rounded-xl text-orange-400 font-medium hover:bg-orange-500/10 transition-all duration-300 text-sm"
+            className="glass neon-border px-8 py-3 rounded-xl text-red-500 font-medium hover:bg-red-600/10 transition-all duration-300 text-sm"
           >
             Lihat Semua Artikel
           </motion.button>

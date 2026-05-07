@@ -24,8 +24,8 @@ const services = [
     advantages: ["Harga terjangkau", "Kapasitas besar", "Tracking real-time"],
     coverage: "Seluruh Pulau Jawa & Sumatera",
     eta: "1-5 hari kerja",
-    color: "from-orange-500 to-orange-700",
-    glow: "rgba(249, 115, 22, 0.3)",
+    color: "from-red-600 to-red-800",
+    glow: "rgba(220, 38, 38, 0.3)",
   },
   {
     icon: Ship,
@@ -54,7 +54,7 @@ const services = [
     advantages: ["Hari yang sama", "Prioritas utama", "Konfirmasi langsung"],
     coverage: "Jabodetabek & Kota Besar",
     eta: "Hari yang sama",
-    color: "from-yellow-500 to-orange-500",
+    color: "from-yellow-500 to-red-600",
     glow: "rgba(234, 179, 8, 0.3)",
   },
   {
@@ -94,8 +94,8 @@ const services = [
     advantages: ["Real-time update", "Notifikasi otomatis", "Riwayat lengkap"],
     coverage: "Semua Layanan",
     eta: "Real-time",
-    color: "from-orange-500 to-red-500",
-    glow: "rgba(249, 115, 22, 0.3)",
+    color: "from-red-600 to-blue-700",
+    glow: "rgba(220, 38, 38, 0.3)",
   },
 ];
 
@@ -119,7 +119,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       </div>
 
       {/* Title */}
-      <h3 className="font-sora font-bold text-xl text-white mb-3 group-hover:text-orange-400 transition-colors duration-300">
+      <h3 className="font-sora font-bold text-xl text-white mb-3 group-hover:text-red-500 transition-colors duration-300">
         {service.title}
       </h3>
 
@@ -132,7 +132,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <div className="space-y-2 mb-5">
         {service.advantages.map((adv) => (
           <div key={adv} className="flex items-center gap-2">
-            <CheckCircle className="w-4 h-4 text-orange-400 flex-shrink-0" />
+            <CheckCircle className="w-4 h-4 text-red-500 flex-shrink-0" />
             <span className="text-gray-300 text-sm">{adv}</span>
           </div>
         ))}
@@ -146,7 +146,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         </div>
         <div className="text-right">
           <div className="text-gray-500 text-xs">Estimasi</div>
-          <div className="text-orange-400 text-xs font-semibold">{service.eta}</div>
+          <div className="text-red-500 text-xs font-semibold">{service.eta}</div>
         </div>
       </div>
 
@@ -154,7 +154,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <motion.button
         whileHover={{ scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="w-full mt-4 py-2.5 rounded-xl border border-orange-500/30 text-orange-400 text-sm font-medium flex items-center justify-center gap-2 hover:bg-orange-500/10 transition-all duration-300 opacity-0 group-hover:opacity-100"
+        className="w-full mt-4 py-2.5 rounded-xl border border-red-600/30 text-red-500 text-sm font-medium flex items-center justify-center gap-2 hover:bg-red-600/10 transition-all duration-300 opacity-0 group-hover:opacity-100"
       >
         <Link href="/contact" className="flex items-center gap-2 w-full justify-center">
           Konsultasi Sekarang
@@ -175,7 +175,7 @@ export default function ServicesSection() {
       <div className="absolute inset-0 grid-pattern opacity-20" />
 
       {/* Glow orbs */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-red-600/5 rounded-full blur-3xl" />
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -188,8 +188,8 @@ export default function ServicesSection() {
           className="text-center mb-16"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-4">
-            <Truck className="w-4 h-4 text-orange-400" />
-            <span className="text-orange-400 text-sm font-medium">Layanan Kami</span>
+            <Truck className="w-4 h-4 text-red-500" />
+            <span className="text-red-500 text-sm font-medium">Layanan Kami</span>
           </div>
           <h2 className="font-sora font-black text-4xl sm:text-5xl text-white mb-4">
             Solusi Pengiriman{" "}

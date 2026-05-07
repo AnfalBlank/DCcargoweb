@@ -9,7 +9,7 @@ const CargoScene = dynamic(() => import("@/components/3d/CargoScene"), {
   ssr: false,
   loading: () => (
     <div className="w-full h-full flex items-center justify-center">
-      <div className="w-12 h-12 border-4 border-orange-500/30 border-t-orange-500 rounded-full animate-spin" />
+      <div className="w-12 h-12 border-4 border-red-600/30 border-t-red-600 rounded-full animate-spin" />
     </div>
   ),
 });
@@ -19,13 +19,13 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center overflow-hidden animated-bg pt-14">
       {/* Background layers */}
       <div className="absolute inset-0 grid-pattern opacity-30" />
-      <div className="absolute inset-0 bg-gradient-radial from-orange-500/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-radial from-red-600/10 via-transparent to-transparent" />
 
       {/* Floating particles — fewer on mobile */}
       {[...Array(10)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-orange-400 rounded-full opacity-30"
+          className="absolute w-1 h-1 bg-red-400 rounded-full opacity-30"
           style={{ left: `${8 + i * 9}%`, top: `${10 + (i % 5) * 17}%` }}
           animate={{ y: [0, -20, 0], opacity: [0.15, 0.6, 0.15] }}
           transition={{ duration: 3 + (i % 3), repeat: Infinity, delay: i * 0.4 }}
@@ -44,8 +44,8 @@ export default function HeroSection() {
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full glass neon-border"
           >
-            <div className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse" />
-            <span className="text-orange-400 text-xs font-medium">#1 Cargo Express Indonesia</span>
+            <div className="w-1.5 h-1.5 bg-red-500 rounded-full animate-pulse" />
+            <span className="text-red-500 text-xs font-medium">#1 Cargo Express Indonesia</span>
           </motion.div>
 
           {/* Heading */}
@@ -69,7 +69,7 @@ export default function HeroSection() {
             transition={{ duration: 0.9, delay: 0.2 }}
             className="relative w-full h-[220px]"
           >
-            <div className="absolute inset-0 bg-gradient-radial from-orange-500/20 via-transparent to-transparent blur-2xl" />
+            <div className="absolute inset-0 bg-gradient-radial from-red-600/20 via-transparent to-transparent blur-2xl" />
             <CargoScene />
           </motion.div>
 
@@ -81,9 +81,9 @@ export default function HeroSection() {
             className="text-gray-400 text-sm leading-relaxed max-w-xs"
           >
             Solusi cargo express{" "}
-            <span className="text-orange-400 font-semibold">cepat</span>,{" "}
-            <span className="text-orange-400 font-semibold">aman</span>, dan{" "}
-            <span className="text-orange-400 font-semibold">terpercaya</span>{" "}
+            <span className="text-red-500 font-semibold">cepat</span>,{" "}
+            <span className="text-red-500 font-semibold">aman</span>, dan{" "}
+            <span className="text-red-500 font-semibold">terpercaya</span>{" "}
             untuk seluruh Indonesia.
           </motion.p>
 
@@ -97,7 +97,7 @@ export default function HeroSection() {
             <Link href="/contact" className="w-full">
               <motion.span
                 whileTap={{ scale: 0.96 }}
-                className="btn-primary flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-white text-sm shadow-orange-glow cursor-pointer w-full"
+                className="btn-primary flex items-center justify-center gap-2 px-6 py-3.5 rounded-2xl font-semibold text-white text-sm shadow-red-glow cursor-pointer w-full"
               >
                 Kirim Sekarang
                 <ArrowRight className="w-4 h-4" />
@@ -147,8 +147,8 @@ export default function HeroSection() {
               transition={{ duration: 0.6 }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass neon-border mb-6"
             >
-              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-              <span className="text-orange-400 text-sm font-medium">#1 Cargo Express Indonesia</span>
+              <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse" />
+              <span className="text-red-500 text-sm font-medium">#1 Cargo Express Indonesia</span>
             </motion.div>
 
             <motion.h1
@@ -171,9 +171,9 @@ export default function HeroSection() {
               className="text-gray-400 text-lg leading-relaxed mb-8 max-w-lg"
             >
               Solusi pengiriman cargo express modern yang{" "}
-              <span className="text-orange-400 font-semibold">cepat</span>,{" "}
-              <span className="text-orange-400 font-semibold">aman</span>, dan{" "}
-              <span className="text-orange-400 font-semibold">terpercaya</span>{" "}
+              <span className="text-red-500 font-semibold">cepat</span>,{" "}
+              <span className="text-red-500 font-semibold">aman</span>, dan{" "}
+              <span className="text-red-500 font-semibold">terpercaya</span>{" "}
               untuk seluruh Indonesia.
             </motion.p>
 
@@ -187,7 +187,7 @@ export default function HeroSection() {
                 <motion.span
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="btn-primary flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white shadow-orange-glow cursor-pointer"
+                  className="btn-primary flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white shadow-red-glow cursor-pointer"
                 >
                   Kirim Sekarang
                   <ArrowRight className="w-5 h-5" />
@@ -197,7 +197,7 @@ export default function HeroSection() {
                 <motion.span
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white glass neon-border hover:bg-orange-500/10 transition-all duration-300 cursor-pointer"
+                  className="flex items-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white glass neon-border hover:bg-red-600/10 transition-all duration-300 cursor-pointer"
                 >
                   Hubungi Kami
                 </motion.span>
@@ -216,7 +216,7 @@ export default function HeroSection() {
                 { value: "24/7", label: "Support" },
               ].map((stat, i) => (
                 <div key={stat.label} className="flex items-center gap-3">
-                  {i > 0 && <div className="w-px h-10 bg-gradient-to-b from-orange-500 to-transparent" />}
+                  {i > 0 && <div className="w-px h-10 bg-gradient-to-b from-red-600 to-transparent" />}
                   <div>
                     <div className="font-sora font-bold text-2xl gradient-text">{stat.value}</div>
                     <div className="text-gray-500 text-xs">{stat.label}</div>
@@ -233,7 +233,7 @@ export default function HeroSection() {
             transition={{ duration: 1, delay: 0.3 }}
             className="relative h-[560px]"
           >
-            <div className="absolute inset-0 bg-gradient-radial from-orange-500/20 via-transparent to-transparent rounded-full blur-3xl" />
+            <div className="absolute inset-0 bg-gradient-radial from-red-600/20 via-transparent to-transparent rounded-full blur-3xl" />
             <CargoScene />
 
             {/* Floating badges — desktop only */}
@@ -250,7 +250,7 @@ export default function HeroSection() {
                 transition={{ duration: 0.5, delay: badge.delay + 0.8 }}
                 className={`absolute ${badge.cls} glass neon-border px-3 py-2 rounded-xl flex items-center gap-2 z-10`}
               >
-                <badge.icon className="w-4 h-4 text-orange-400" />
+                <badge.icon className="w-4 h-4 text-red-500" />
                 <span className="text-white text-xs font-medium">{badge.label}</span>
               </motion.div>
             ))}
@@ -269,9 +269,9 @@ export default function HeroSection() {
         <motion.div
           animate={{ y: [0, 8, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-5 h-8 border-2 border-orange-500/40 rounded-full flex items-start justify-center pt-1"
+          className="w-5 h-8 border-2 border-red-600/40 rounded-full flex items-start justify-center pt-1"
         >
-          <div className="w-1 h-2 bg-orange-400 rounded-full" />
+          <div className="w-1 h-2 bg-red-500 rounded-full" />
         </motion.div>
       </motion.div>
     </section>

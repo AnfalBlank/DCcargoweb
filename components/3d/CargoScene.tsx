@@ -2,290 +2,284 @@
 
 import { useRef, Suspense, useMemo } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { Stars } from "@react-three/drei";
+import { Stars, Sphere } from "@react-three/drei";
 import * as THREE from "three";
 
-// ── Globe ──────────────────────────────────────────────────────────────────
-function Globe() {
-  const meshRef = useRef<THREE.Mesh>(null);
-  const glowRef = useRef<THREE.Mesh>(null);
+// ── Earth Globe ─────────────────────────────────────────────────────────────
+function Earth() {
+  const earthRef = useRef<THREE.Mesh>(null);
+  const cloudsRef = useRef<THREE.Mesh>(null);
 
   useFrame((_, delta) => {
-    if (meshRef.current) meshRef.current.rotation.y += delta * 0.12;
-    if (glowRef.current) glowRef.current.rotation.y += delta * 0.12;
+    if (earthRef.current)  earthRef.current.rotation.y  += delta * 0.08;
+    if (cloudsRef.current) cloudsRef.current.rotation.y += delta * 0.10;
   });
 
-  // Simple land-mass geometry using a sphere with custom shader-like material
+  // Build a simple procedural earth texture using canvas
+  const earthTexture = useMemo(() => {
+    const size = 512;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext("2d")!;
+
+    // Ocean base
+    ctx.fillStyle = "#1a4a8a";
+    ctx.fillRect(0, 0, size, size);
+
+    // Gradient ocean depth
+    const oceanGrad = ctx.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+    oceanGrad.addColorStop(0, "rgba(30,90,160,0.4)");
+    oceanGrad.addColorStop(1, "rgba(10,30,80,0.6)");
+    ctx.fillStyle = oceanGrad;
+    ctx.fillRect(0, 0, size, size);
+
+    // Land masses (simplified continents)
+    ctx.fillStyle = "#2d6a1f";
+
+    // Asia / Europe
+    ctx.beginPath();
+    ctx.ellipse(340, 140, 110, 70, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(290, 120, 60, 40, 0.3, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Africa
+    ctx.beginPath();
+    ctx.ellipse(300, 230, 50, 80, 0.1, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Americas
+    ctx.beginPath();
+    ctx.ellipse(120, 160, 45, 70, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(140, 280, 35, 60, 0.1, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Australia
+    ctx.beginPath();
+    ctx.ellipse(420, 290, 45, 30, 0.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Greenland
+    ctx.beginPath();
+    ctx.ellipse(200, 80, 25, 20, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Antarctica
+    ctx.fillStyle = "#dde8f0";
+    ctx.beginPath();
+    ctx.ellipse(256, 490, 180, 30, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Arctic
+    ctx.beginPath();
+    ctx.ellipse(256, 22, 180, 28, 0, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Lighter land highlights
+    ctx.fillStyle = "rgba(80,160,50,0.35)";
+    ctx.beginPath();
+    ctx.ellipse(340, 135, 100, 60, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.beginPath();
+    ctx.ellipse(120, 155, 38, 60, -0.2, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Grid lines (lat/lon)
+    ctx.strokeStyle = "rgba(100,160,255,0.18)";
+    ctx.lineWidth = 1;
+    // Latitude lines
+    for (let lat = 1; lat < 6; lat++) {
+      const y = (lat / 6) * size;
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(size, y);
+      ctx.stroke();
+    }
+    // Longitude lines
+    for (let lon = 1; lon < 8; lon++) {
+      const x = (lon / 8) * size;
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, size);
+      ctx.stroke();
+    }
+
+    const tex = new THREE.CanvasTexture(canvas);
+    return tex;
+  }, []);
+
   return (
     <group>
-      {/* Outer atmosphere glow */}
-      <mesh ref={glowRef} scale={1.08}>
-        <sphereGeometry args={[1.5, 64, 64]} />
+      {/* Atmosphere glow (back side) */}
+      <mesh scale={1.12}>
+        <sphereGeometry args={[1.5, 32, 32]} />
         <meshStandardMaterial
-          color="#1E3A8A"
+          color="#4488ff"
           transparent
-          opacity={0.12}
+          opacity={0.08}
           side={THREE.BackSide}
         />
       </mesh>
 
-      {/* Ocean layer */}
-      <mesh ref={meshRef}>
-        <sphereGeometry args={[1.5, 64, 64]} />
+      {/* Atmosphere rim */}
+      <mesh scale={1.06}>
+        <sphereGeometry args={[1.5, 32, 32]} />
         <meshStandardMaterial
-          color="#1a4a8a"
-          metalness={0.1}
-          roughness={0.6}
-          emissive="#0a1f4a"
-          emissiveIntensity={0.3}
+          color="#2255cc"
+          transparent
+          opacity={0.06}
+          side={THREE.BackSide}
         />
       </mesh>
 
-      {/* Continent patches — simplified as raised bumps */}
-      <ContinentPatch position={[0.6, 0.5, 1.2]}  scale={[0.55, 0.35, 0.08]} color="#2d5a1b" />
-      <ContinentPatch position={[-0.5, 0.3, 1.3]} scale={[0.45, 0.3, 0.08]}  color="#3a6b22" />
-      <ContinentPatch position={[1.1, 0.1, 0.9]}  scale={[0.5, 0.4, 0.08]}   color="#2d5a1b" />
-      <ContinentPatch position={[-1.2, 0.2, 0.8]} scale={[0.4, 0.5, 0.08]}   color="#3a6b22" />
-      <ContinentPatch position={[0.2, -0.6, 1.3]} scale={[0.35, 0.25, 0.08]} color="#2d5a1b" />
-      <ContinentPatch position={[0.8, -0.4, 1.1]} scale={[0.3, 0.2, 0.08]}   color="#3a6b22" />
-      <ContinentPatch position={[-0.3, 0.8, 1.2]} scale={[0.25, 0.2, 0.08]}  color="#2d5a1b" />
-      <ContinentPatch position={[0.0, -1.0, 1.1]} scale={[0.5, 0.3, 0.08]}   color="#c8d8b0" /> {/* Antarctica */}
+      {/* Earth sphere */}
+      <mesh ref={earthRef}>
+        <sphereGeometry args={[1.5, 64, 64]} />
+        <meshStandardMaterial
+          map={earthTexture}
+          metalness={0.05}
+          roughness={0.75}
+        />
+      </mesh>
 
-      {/* Latitude rings */}
-      <LatRing y={0}    radius={1.52} />
-      <LatRing y={0.75} radius={1.32} />
-      <LatRing y={-0.75} radius={1.32} />
-
-      {/* Longitude lines */}
-      <LonLine angle={0} />
-      <LonLine angle={Math.PI / 3} />
-      <LonLine angle={(2 * Math.PI) / 3} />
+      {/* Cloud layer */}
+      <mesh ref={cloudsRef} scale={1.015}>
+        <sphereGeometry args={[1.5, 32, 32]} />
+        <meshStandardMaterial
+          color="#ffffff"
+          transparent
+          opacity={0.12}
+          depthWrite={false}
+        />
+      </mesh>
     </group>
   );
 }
 
-function ContinentPatch({ position, scale, color }: {
-  position: [number, number, number];
-  scale: [number, number, number];
-  color: string;
-}) {
-  const pos = new THREE.Vector3(...position).normalize().multiplyScalar(1.51);
-  return (
-    <mesh position={[pos.x, pos.y, pos.z]}>
-      <sphereGeometry args={[1, 8, 8]} />
-      <meshStandardMaterial color={color} roughness={0.8} metalness={0} />
-      <mesh scale={scale}>
-        <sphereGeometry args={[1, 8, 8]} />
-        <meshStandardMaterial color={color} roughness={0.8} />
-      </mesh>
-    </mesh>
-  );
-}
-
-function LatRing({ y, radius }: { y: number; radius: number }) {
-  const points = useMemo(() => {
-    const pts: THREE.Vector3[] = [];
-    for (let i = 0; i <= 64; i++) {
-      const a = (i / 64) * Math.PI * 2;
-      pts.push(new THREE.Vector3(Math.cos(a) * radius, y, Math.sin(a) * radius));
-    }
-    return pts;
-  }, [y, radius]);
-
-  const geo = useMemo(() => {
-    const g = new THREE.BufferGeometry().setFromPoints(points);
-    return g;
-  }, [points]);
-
-  return (
-    <primitive object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color: "#3B82F6", transparent: true, opacity: 0.2 }))} />
-  );
-}
-
-function LonLine({ angle }: { angle: number }) {
-  const points = useMemo(() => {
-    const pts: THREE.Vector3[] = [];
-    for (let i = 0; i <= 64; i++) {
-      const phi = (i / 64) * Math.PI * 2;
-      pts.push(new THREE.Vector3(
-        Math.sin(phi) * Math.cos(angle) * 1.52,
-        Math.cos(phi) * 1.52,
-        Math.sin(phi) * Math.sin(angle) * 1.52,
-      ));
-    }
-    return pts;
-  }, [angle]);
-
-  const geo = useMemo(() => new THREE.BufferGeometry().setFromPoints(points), [points]);
-
-  return (
-    <primitive object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color: "#3B82F6", transparent: true, opacity: 0.15 }))} />
-  );
-}
-
-// ── Airplane orbiting the globe ────────────────────────────────────────────
-function Airplane({ orbitRadius = 2.2, speed = 0.4, tilt = 0.4, phase = 0 }: {
+// ── Airplane ────────────────────────────────────────────────────────────────
+function Airplane({
+  orbitRadius = 2.3,
+  speed = 0.5,
+  tiltX = 0.4,
+  tiltZ = 0,
+  phase = 0,
+  color = "#DC2626",
+}: {
   orbitRadius?: number;
   speed?: number;
-  tilt?: number;
+  tiltX?: number;
+  tiltZ?: number;
   phase?: number;
+  color?: string;
 }) {
   const groupRef = useRef<THREE.Group>(null);
-  const angleRef = useRef(phase);
+  const angle = useRef(phase);
 
   useFrame((_, delta) => {
-    angleRef.current += delta * speed;
-    const a = angleRef.current;
+    angle.current += delta * speed;
+    const a = angle.current;
+
+    // Tilted orbit
+    const x =  Math.cos(a) * orbitRadius;
+    const y =  Math.sin(a) * orbitRadius * Math.sin(tiltX);
+    const z =  Math.sin(a) * orbitRadius * Math.cos(tiltX);
 
     if (groupRef.current) {
-      // Orbit position (tilted ellipse)
-      const x = Math.cos(a) * orbitRadius;
-      const y = Math.sin(a) * orbitRadius * Math.sin(tilt);
-      const z = Math.sin(a) * orbitRadius * Math.cos(tilt);
-
       groupRef.current.position.set(x, y, z);
 
-      // Point nose in direction of travel
-      const nx = -Math.sin(a) * orbitRadius;
-      const ny = Math.cos(a) * orbitRadius * Math.sin(tilt);
-      const nz = Math.cos(a) * orbitRadius * Math.cos(tilt);
-      groupRef.current.lookAt(
-        groupRef.current.position.x + nx,
-        groupRef.current.position.y + ny,
-        groupRef.current.position.z + nz,
-      );
+      // Tangent direction (velocity vector)
+      const tx = -Math.sin(a) * orbitRadius;
+      const ty =  Math.cos(a) * orbitRadius * Math.sin(tiltX);
+      const tz =  Math.cos(a) * orbitRadius * Math.cos(tiltX);
+
+      groupRef.current.lookAt(x + tx, y + ty, z + tz);
     }
   });
 
   return (
     <group ref={groupRef}>
-      {/* Fuselage */}
-      <mesh>
-        <cylinderGeometry args={[0.025, 0.04, 0.28, 8]} />
-        <meshStandardMaterial color="#E2E8F0" metalness={0.8} roughness={0.2} />
+      {/* Body */}
+      <mesh rotation={[Math.PI / 2, 0, 0]}>
+        <cylinderGeometry args={[0.022, 0.035, 0.26, 8]} />
+        <meshStandardMaterial color="#F1F5F9" metalness={0.7} roughness={0.3} />
       </mesh>
-      {/* Nose cone */}
-      <mesh position={[0, 0.17, 0]}>
-        <coneGeometry args={[0.025, 0.08, 8]} />
-        <meshStandardMaterial color="#CBD5E1" metalness={0.8} roughness={0.2} />
+      {/* Nose */}
+      <mesh position={[0, 0, -0.16]} rotation={[Math.PI / 2, 0, 0]}>
+        <coneGeometry args={[0.022, 0.07, 8]} />
+        <meshStandardMaterial color="#CBD5E1" metalness={0.7} roughness={0.3} />
       </mesh>
       {/* Main wings */}
-      <mesh position={[0, 0, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <boxGeometry args={[0.35, 0.008, 0.07]} />
-        <meshStandardMaterial color="#DC2626" metalness={0.6} roughness={0.3} />
+      <mesh rotation={[0, 0, Math.PI / 2]}>
+        <boxGeometry args={[0.32, 0.006, 0.065]} />
+        <meshStandardMaterial color={color} metalness={0.5} roughness={0.4} />
       </mesh>
-      {/* Tail fin vertical */}
-      <mesh position={[0, -0.1, -0.02]} rotation={[0.15, 0, 0]}>
-        <boxGeometry args={[0.008, 0.08, 0.06]} />
-        <meshStandardMaterial color="#DC2626" metalness={0.6} roughness={0.3} />
+      {/* Tail horizontal */}
+      <mesh position={[0, 0, 0.1]} rotation={[0, 0, Math.PI / 2]}>
+        <boxGeometry args={[0.13, 0.005, 0.04]} />
+        <meshStandardMaterial color={color} metalness={0.5} roughness={0.4} />
       </mesh>
-      {/* Tail wings horizontal */}
-      <mesh position={[0, -0.1, 0]} rotation={[0, 0, Math.PI / 2]}>
-        <boxGeometry args={[0.14, 0.006, 0.04]} />
-        <meshStandardMaterial color="#DC2626" metalness={0.6} roughness={0.3} />
-      </mesh>
-      {/* Engine pods */}
-      <mesh position={[0.1, 0.02, 0.02]}>
-        <cylinderGeometry args={[0.015, 0.018, 0.07, 6]} />
-        <meshStandardMaterial color="#94A3B8" metalness={0.9} roughness={0.1} />
-      </mesh>
-      <mesh position={[-0.1, 0.02, 0.02]}>
-        <cylinderGeometry args={[0.015, 0.018, 0.07, 6]} />
-        <meshStandardMaterial color="#94A3B8" metalness={0.9} roughness={0.1} />
+      {/* Tail vertical */}
+      <mesh position={[0, 0.05, 0.1]}>
+        <boxGeometry args={[0.005, 0.07, 0.045]} />
+        <meshStandardMaterial color={color} metalness={0.5} roughness={0.4} />
       </mesh>
       {/* Engine glow */}
-      <pointLight color="#EF4444" intensity={0.8} distance={0.5} />
+      <pointLight color={color} intensity={0.6} distance={0.6} />
     </group>
   );
 }
 
-// ── Orbit path ring ────────────────────────────────────────────────────────
-function OrbitRing({ radius = 2.2, tilt = 0.4, color = "#DC2626" }: {
-  radius?: number;
-  tilt?: number;
-  color?: string;
-}) {
-  const points = useMemo(() => {
+// ── Orbit ring ───────────────────────────────────────────────────────────────
+function OrbitRing({ radius, tiltX, color }: { radius: number; tiltX: number; color: string }) {
+  const line = useMemo(() => {
     const pts: THREE.Vector3[] = [];
     for (let i = 0; i <= 128; i++) {
       const a = (i / 128) * Math.PI * 2;
       pts.push(new THREE.Vector3(
         Math.cos(a) * radius,
-        Math.sin(a) * radius * Math.sin(tilt),
-        Math.sin(a) * radius * Math.cos(tilt),
+        Math.sin(a) * radius * Math.sin(tiltX),
+        Math.sin(a) * radius * Math.cos(tiltX),
       ));
     }
-    return pts;
-  }, [radius, tilt]);
+    const geo = new THREE.BufferGeometry().setFromPoints(pts);
+    const mat = new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.25 });
+    return new THREE.Line(geo, mat);
+  }, [radius, tiltX, color]);
 
-  const geo = useMemo(() => new THREE.BufferGeometry().setFromPoints(points), [points]);
-
-  return (
-    <primitive object={new THREE.Line(geo, new THREE.LineBasicMaterial({ color, transparent: true, opacity: 0.18 }))} />
-  );
+  return <primitive object={line} />;
 }
 
-// ── Floating particles ─────────────────────────────────────────────────────
-function Particles() {
-  const count = 80;
-  const positions = useMemo(() => {
-    const arr = new Float32Array(count * 3);
-    for (let i = 0; i < count; i++) {
-      const r = 2.8 + Math.random() * 1.5;
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      arr[i * 3]     = r * Math.sin(phi) * Math.cos(theta);
-      arr[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
-      arr[i * 3 + 2] = r * Math.cos(phi);
-    }
-    return arr;
-  }, []);
-
-  const ref = useRef<THREE.Points>(null);
-  useFrame((_, delta) => {
-    if (ref.current) ref.current.rotation.y += delta * 0.03;
-  });
-
-  return (
-    <points ref={ref}>
-      <bufferGeometry>
-        <bufferAttribute attach="attributes-position" count={count} array={positions} itemSize={3} />
-      </bufferGeometry>
-      <pointsMaterial size={0.03} color="#93C5FD" transparent opacity={0.7} sizeAttenuation />
-    </points>
-  );
-}
-
-// ── Scene ──────────────────────────────────────────────────────────────────
+// ── Scene ────────────────────────────────────────────────────────────────────
 function Scene() {
   return (
     <>
-      <ambientLight intensity={0.6} />
-      <directionalLight position={[5, 5, 5]} intensity={1.2} color="#ffffff" />
-      <directionalLight position={[-3, -2, -3]} intensity={0.4} color="#3B82F6" />
-      <pointLight position={[0, 0, 4]} intensity={0.5} color="#EF4444" distance={8} />
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[5, 3, 5]}  intensity={1.4} color="#ffffff" />
+      <directionalLight position={[-4, -2, -3]} intensity={0.3} color="#4488ff" />
 
-      <Stars radius={60} depth={30} count={1500} factor={3} saturation={0.3} fade speed={0.5} />
-      <Particles />
+      <Stars radius={80} depth={40} count={2000} factor={3} saturation={0.2} fade speed={0.4} />
 
-      <Globe />
+      <Earth />
 
-      {/* Two airplanes on different orbits */}
-      <OrbitRing radius={2.2} tilt={0.4}  color="#DC2626" />
-      <OrbitRing radius={2.4} tilt={-0.3} color="#1E3A8A" />
+      <OrbitRing radius={2.3} tiltX={0.45}  color="#DC2626" />
+      <OrbitRing radius={2.5} tiltX={-0.35} color="#1E3A8A" />
 
-      <Airplane orbitRadius={2.2} speed={0.45} tilt={0.4}  phase={0} />
-      <Airplane orbitRadius={2.4} speed={0.3}  tilt={-0.3} phase={Math.PI} />
+      <Airplane orbitRadius={2.3} speed={0.5}  tiltX={0.45}  phase={0}        color="#DC2626" />
+      <Airplane orbitRadius={2.5} speed={0.32} tiltX={-0.35} phase={Math.PI}  color="#1E3A8A" />
     </>
   );
 }
 
-// ── Export ─────────────────────────────────────────────────────────────────
+// ── Export ───────────────────────────────────────────────────────────────────
 export default function CargoScene() {
   return (
     <div className="w-full h-full">
       <Canvas
-        camera={{ position: [0, 1, 6], fov: 50 }}
+        camera={{ position: [0, 1.5, 6], fov: 48 }}
         gl={{ antialias: true, alpha: true }}
         style={{ background: "transparent" }}
       >

@@ -20,51 +20,6 @@ const stats = [
   { value: "24/7", label: "Support" },
 ];
 
-// Animated letter component for the company name
-function AnimatedTitle() {
-  const text = "PT. DITAMA CARGO LOGISTIK";
-  return (
-    <div className="overflow-hidden">
-      <motion.div
-        initial="hidden"
-        animate="visible"
-        variants={{
-          visible: { transition: { staggerChildren: 0.04 } },
-        }}
-        className="flex flex-wrap justify-center gap-x-[3px]"
-      >
-        {text.split("").map((char, i) => (
-          <motion.span
-            key={i}
-            variants={{
-              hidden:  { opacity: 0, y: 20, rotateX: -90 },
-              visible: { opacity: 1, y: 0,  rotateX: 0,
-                transition: { type: "spring", stiffness: 200, damping: 18 } },
-            }}
-            className={`font-sora font-black text-lg leading-tight inline-block ${
-              char === " " ? "w-2" : ""
-            } ${
-              ["D","I","T","A","M","A"].includes(char) && i > 3
-                ? "text-red-300"
-                : "text-white"
-            }`}
-          >
-            {char === " " ? "\u00A0" : char}
-          </motion.span>
-        ))}
-      </motion.div>
-
-      {/* Underline sweep */}
-      <motion.div
-        initial={{ scaleX: 0 }}
-        animate={{ scaleX: 1 }}
-        transition={{ duration: 0.8, delay: 1.2, ease: "easeOut" }}
-        className="h-0.5 bg-gradient-to-r from-red-500 via-white to-blue-500 mt-2 origin-left"
-      />
-    </div>
-  );
-}
-
 export default function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden animated-bg pt-14">
@@ -98,14 +53,6 @@ export default function HeroSection() {
           >
             <div className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
             <span className="text-white/80 text-xs font-medium">#1 Cargo Express Indonesia</span>
-          </motion.div>
-
-          {/* ── Animated company name (mobile center) ── */}
-          <motion.div
-            initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.4, delay: 0.2 }}
-            className="w-full px-2"
-          >
-            <AnimatedTitle />
           </motion.div>
 
           {/* 3D Globe */}

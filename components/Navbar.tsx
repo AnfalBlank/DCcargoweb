@@ -52,6 +52,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             <motion.div whileHover={{ scale: 1.04 }} className="flex items-center gap-2.5">
               <Image src="/logo.png" alt="DC Solution" width={52} height={52} className="object-contain" priority />
+              {/* Desktop: DITAMA / Cargo Solution */}
               <div className="hidden sm:block">
                 <div className={`font-sora font-bold text-base leading-none transition-colors duration-300 ${
                   scrolled || !isHeroPage ? "text-brand-navy" : "text-white"
@@ -59,6 +60,25 @@ export default function Navbar() {
                 <div className="text-brand-red text-[10px] tracking-widest uppercase leading-none mt-0.5 font-inter">
                   Cargo Solution
                 </div>
+              </div>
+              {/* Mobile: PT. DITAMA CARGO LOGISTIK with animated reveal */}
+              <div className="sm:hidden">
+                <motion.div
+                  initial={{ opacity: 0, x: -8 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
+                  <div className={`font-sora font-black text-sm leading-tight transition-colors duration-300 ${
+                    scrolled || !isHeroPage ? "text-brand-navy" : "text-white"
+                  }`}>
+                    PT. DITAMA
+                  </div>
+                  <div className={`font-sora font-bold text-[10px] leading-tight transition-colors duration-300 ${
+                    scrolled || !isHeroPage ? "text-brand-red" : "text-red-300"
+                  }`}>
+                    CARGO LOGISTIK
+                  </div>
+                </motion.div>
               </div>
             </motion.div>
           </Link>

@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Ditama Cargo Solution - We Deliver Your Happiness",
   description: "Ditama Cargo Solution adalah solusi pengiriman cargo express modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.",
   keywords: "jasa cargo express, pengiriman cargo terpercaya, cargo seluruh indonesia, jasa pengiriman cepat, cargo murah terpercaya",
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Ditama Cargo Solution - We Deliver Your Happiness",
     description: "Solusi pengiriman cargo express modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.",

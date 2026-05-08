@@ -16,10 +16,10 @@ import {
   CheckCircle,
 } from "lucide-react";
 
-const WA_NUMBER = "6282177981028";
-const WA_ADMIN = "6285211172494";
+const WA_NUMBER = "6285211172494";  // CS
+const WA_ADMIN  = "6282177981028";  // Admin
 const WA_CONTACT_MSG = encodeURIComponent(
-  "Halo DC Cargo, saya ingin berkonsultasi mengenai kebutuhan pengiriman saya. Bisa dibantu?"
+  "Halo DC Solution, saya ingin berkonsultasi mengenai kebutuhan pengiriman saya. Bisa dibantu?"
 );
 
 export default function ContactSection() {
@@ -39,7 +39,7 @@ export default function ContactSection() {
     setIsLoading(true);
     // Build WA message from form
     const msg = encodeURIComponent(
-      `Halo DC Cargo, saya ${formData.name}.\n` +
+      `Halo DC Solution, saya ${formData.name}.\n` +
       `No. WA: ${formData.phone}\n` +
       (formData.email ? `Email: ${formData.email}\n` : "") +
       (formData.service ? `Layanan: ${formData.service}\n` : "") +
@@ -58,7 +58,7 @@ export default function ContactSection() {
     {
       icon: Phone,
       label: "WhatsApp CS",
-      value: "+62 821-7798-1028",
+      value: "+62 852-1117-2494",
       sub: "Customer Service — Senin s/d Sabtu, 08:00–20:00",
       iconColor: "text-brand-red",
       iconBg: "bg-red-50",
@@ -68,7 +68,7 @@ export default function ContactSection() {
     {
       icon: Phone,
       label: "WhatsApp Admin",
-      value: "+62 852-1117-2494",
+      value: "+62 821-7798-1028",
       sub: "Admin — Senin s/d Sabtu, 08:00–20:00",
       iconColor: "text-brand-blue",
       iconBg: "bg-blue-50",
@@ -78,12 +78,12 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "info@ditamacargo.id",
+      value: "adminDCS16@gmail.com",
       sub: "Respon dalam 1x24 jam",
       iconColor: "text-brand-red",
       iconBg: "bg-red-50",
       borderColor: "border-red-100",
-      href: "mailto:info@ditamacargo.id",
+      href: "mailto:adminDCS16@gmail.com",
     },
     {
       icon: MapPin,

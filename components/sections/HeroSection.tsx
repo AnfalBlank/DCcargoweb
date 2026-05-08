@@ -52,7 +52,7 @@ export default function HeroSection() {
             className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20"
           >
             <div className="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse" />
-            <span className="text-white/80 text-xs font-medium">#1 Cargo Express Indonesia</span>
+            <span className="text-white/80 text-xs font-medium">#1 DC Solution Indonesia</span>
           </motion.div>
 
           {/* 3D Globe */}
@@ -103,7 +103,7 @@ export default function HeroSection() {
               </motion.span>
             </Link>
             <motion.a
-              href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin mengetahui lebih lanjut tentang layanan pengiriman. Bisa bantu saya?")}`}
+              href={`https://wa.me/6285211172494?text=${encodeURIComponent("Halo DC Solution, saya ingin mengetahui lebih lanjut tentang layanan pengiriman. Bisa bantu saya?")}`}
               target="_blank"
               rel="noopener noreferrer"
               whileTap={{ scale: 0.96 }}
@@ -142,7 +142,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 border border-white/20 mb-7"
             >
               <div className="w-2 h-2 bg-red-400 rounded-full animate-pulse" />
-              <span className="text-white/90 text-sm font-medium">#1 Cargo Express Indonesia</span>
+              <span className="text-white/90 text-sm font-medium">#1 DC Solution Indonesia</span>
             </motion.div>
 
             <motion.h1
@@ -180,7 +180,7 @@ export default function HeroSection() {
                 </motion.span>
               </Link>
               <motion.a
-                href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin mengetahui lebih lanjut tentang layanan pengiriman. Bisa bantu saya?")}`}
+                href={`https://wa.me/6285211172494?text=${encodeURIComponent("Halo DC Solution, saya ingin mengetahui lebih lanjut tentang layanan pengiriman. Bisa bantu saya?")}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}

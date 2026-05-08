@@ -14,7 +14,7 @@ export interface FAQItem {
 const WA = "6282177981028";
 
 function FAQCard({ item, index, isOpen, onToggle }: { item: FAQItem; index: number; isOpen: boolean; onToggle: () => void }) {
-  const waMsg = encodeURIComponent(item.waText ?? `Halo DC Cargo, saya ingin bertanya: ${item.q}`);
+  const waMsg = encodeURIComponent(item.waText ?? `Halo DC Solution, saya ingin bertanya: ${item.q}`);
 
   return (
     <motion.div
@@ -99,7 +99,7 @@ export default function FAQSection({ faqs, title = "Pertanyaan yang Sering Ditan
         >
           <p className="text-slate-500 text-sm mb-4">Tidak menemukan jawaban yang Anda cari? Tim kami siap membantu!</p>
           <a
-            href={`https://wa.me/${WA}?text=${encodeURIComponent("Halo DC Cargo, saya punya pertanyaan yang belum terjawab di FAQ. Bisa dibantu?")}`}
+            href={`https://wa.me/${WA}?text=${encodeURIComponent("Halo DC Solution, saya punya pertanyaan yang belum terjawab di FAQ. Bisa dibantu?")}`}
             target="_blank" rel="noopener noreferrer"
             className="btn-primary inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm"
           >

@@ -46,7 +46,7 @@ export default function CTABanner() {
                 </motion.span>
               </Link>
               <motion.a
-                href={`https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya mulai?")}`}
+                href={`https://wa.me/6285211172494?text=${encodeURIComponent("Halo DC Solution, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya mulai?")}`}
                 target="_blank" rel="noopener noreferrer"
                 whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-2xl font-semibold text-white border border-white/20 hover:bg-white/10 transition-all w-full sm:w-auto"

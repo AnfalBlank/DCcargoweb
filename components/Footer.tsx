@@ -29,8 +29,8 @@ const footerLinks = {
   ],
 };
 
-const WA_CS    = `https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya?")}`;
-const WA_ADMIN = `https://wa.me/6285211172494?text=${encodeURIComponent("Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya?")}`;
+const WA_CS    = `https://wa.me/6285211172494?text=${encodeURIComponent("Halo DC Solution, saya ingin menggunakan layanan pengiriman. Bisa bantu saya?")}`;
+const WA_ADMIN = `https://wa.me/6282177981028?text=${encodeURIComponent("Halo DC Solution, saya ingin menggunakan layanan pengiriman. Bisa bantu saya?")}`;
 
 export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
@@ -84,7 +84,7 @@ export default function Footer() {
                   PT. DITAMA
                 </div>
                 <div className="font-sora font-bold text-brand-red text-sm tracking-wider uppercase leading-tight mt-0.5">
-                  Cargo Solution
+                  DC Solution
                 </div>
               </div>
             </Link>
@@ -104,7 +104,7 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-white/35 text-[10px] uppercase tracking-widest font-medium">Customer Service</div>
-                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">+62 821-7798-1028</div>
+                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">+62 852-1117-2494</div>
                 </div>
               </a>
 
@@ -116,19 +116,19 @@ export default function Footer() {
                 </div>
                 <div>
                   <div className="text-white/35 text-[10px] uppercase tracking-widest font-medium">Admin</div>
-                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">+62 852-1117-2494</div>
+                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">+62 821-7798-1028</div>
                 </div>
               </a>
 
               {/* Email */}
-              <a href="mailto:info@ditamacargo.id"
+              <a href="mailto:adminDCS16@gmail.com"
                 className="flex items-start gap-3 group">
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
                   <Mail className="w-4 h-4 text-white/60" />
                 </div>
                 <div>
                   <div className="text-white/35 text-[10px] uppercase tracking-widest font-medium">Email</div>
-                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">info@ditamacargo.id</div>
+                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">adminDCS16@gmail.com</div>
                 </div>
               </a>
 
@@ -199,7 +199,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="py-5 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs text-center sm:text-left">
-            © 2026 PT. Ditama Cargo Solution. All rights reserved.
+            © 2026 PT. Ditama DC Solution. All rights reserved.
           </p>
           <motion.button
             whileHover={{ scale: 1.1, y: -2 }}

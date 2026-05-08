@@ -9,24 +9,24 @@ import { usePathname } from "next/navigation";
 // Context-aware WhatsApp messages per page
 function getWAMessage(pathname: string): string {
   if (pathname.startsWith("/services"))
-    return "Halo DC Cargo, saya ingin mengetahui lebih lanjut tentang layanan pengiriman yang tersedia. Bisa bantu saya?";
+    return "Halo DC Solution, saya ingin mengetahui lebih lanjut tentang layanan pengiriman yang tersedia. Bisa bantu saya?";
   if (pathname.startsWith("/tracking"))
-    return "Halo DC Cargo, saya ingin menanyakan status pengiriman / nomor resi saya. Bisa dibantu?";
+    return "Halo DC Solution, saya ingin menanyakan status pengiriman / nomor resi saya. Bisa dibantu?";
   if (pathname.startsWith("/blog"))
-    return "Halo DC Cargo, saya membaca artikel di website dan ingin bertanya lebih lanjut tentang pengiriman cargo.";
+    return "Halo DC Solution, saya membaca artikel di website dan ingin bertanya lebih lanjut tentang pengiriman cargo.";
   if (pathname.startsWith("/about"))
-    return "Halo DC Cargo, saya ingin mengetahui lebih lanjut tentang perusahaan dan layanan yang ditawarkan.";
+    return "Halo DC Solution, saya ingin mengetahui lebih lanjut tentang perusahaan dan layanan yang ditawarkan.";
   if (pathname.startsWith("/contact"))
-    return "Halo DC Cargo, saya ingin berkonsultasi mengenai kebutuhan pengiriman saya.";
+    return "Halo DC Solution, saya ingin berkonsultasi mengenai kebutuhan pengiriman saya.";
   // Home / default
-  return "Halo DC Cargo, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya mulai?";
+  return "Halo DC Solution, saya ingin menggunakan layanan pengiriman cargo. Bisa bantu saya mulai?";
 }
 
 export default function FloatingWhatsApp() {
   const [isOpen, setIsOpen] = useState(false);
   const pathname = usePathname();
   const waMessage = encodeURIComponent(getWAMessage(pathname));
-  const waUrl = `https://wa.me/6282177981028?text=${waMessage}`;
+  const waUrl = `https://wa.me/6285211172494?text=${waMessage}`;
 
   return (
     <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-50 flex flex-col items-end gap-3">
@@ -43,10 +43,10 @@ export default function FloatingWhatsApp() {
             {/* Header */}
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full overflow-hidden bg-green-500 flex-shrink-0">
-                <Image src="/cs.png" alt="CS DC Cargo" width={40} height={40} className="object-cover w-full h-full" />
+                <Image src="/cs.png" alt="CS DC Solution" width={40} height={40} className="object-cover w-full h-full" />
               </div>
               <div>
-                <div className="text-slate-700 font-semibold text-sm">DC Cargo — CS</div>
+                <div className="text-slate-700 font-semibold text-sm">DC Solution — CS</div>
                 <div className="flex items-center gap-1">
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                   <span className="text-green-400 text-xs">Online sekarang</span>
@@ -113,7 +113,7 @@ export default function FloatingWhatsApp() {
             >
               <Image
                 src="/cs.png"
-                alt="Chat CS DC Cargo"
+                alt="Chat CS DC Solution"
                 width={56}
                 height={56}
                 className="object-cover w-full h-full"

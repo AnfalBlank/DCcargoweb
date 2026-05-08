@@ -89,7 +89,7 @@ export default function ContactSection() {
       icon: MapPin,
       label: "Lokasi Kantor",
       value: "Terminal Kargo Bandara Soekarno-Hatta",
-      sub: "Jl. Cengkareng Golf Club RT.001/RW.010, Pajang, Kec. Benda, Kota Tangerang, Banten 15126",
+      sub: "Gedung Gatrans, Jl. Cengkareng Golf Club RT.001/RW.010, Pajang, Kec. Benda, Kota Tangerang, Banten 15126",
       iconColor: "text-brand-blue",
       iconBg: "bg-blue-50",
       borderColor: "border-blue-100",
@@ -328,7 +328,7 @@ export default function ContactSection() {
           <div className="absolute inset-0 bg-[#F8FAFC] flex items-center justify-center px-4">
             <div className="text-center">
               <MapPin className="w-10 h-10 text-brand-red mx-auto mb-3 animate-bounce" />
-              <div className="text-slate-900 font-semibold text-sm sm:text-base">Terminal Kargo Bandara Soekarno-Hatta</div>
+              <div className="text-slate-900 font-semibold text-sm sm:text-base">Gedung Gatrans, Terminal Kargo Bandara Soekarno-Hatta</div>
               <div className="text-slate-600 text-xs sm:text-sm mt-1 max-w-sm mx-auto leading-relaxed">
                 Jl. Cengkareng Golf Club, RT.001/RW.010, Pajang,<br className="hidden sm:block" />
                 Kec. Benda, Kota Tangerang, Banten 15126

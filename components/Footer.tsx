@@ -84,7 +84,7 @@ export default function Footer() {
                   PT. DITAMA
                 </div>
                 <div className="font-sora font-bold text-brand-red text-sm tracking-wider uppercase leading-tight mt-0.5">
-                  DC Solution
+                  CARGO SOLUTION
                 </div>
               </div>
             </Link>
@@ -140,7 +140,7 @@ export default function Footer() {
                 <div>
                   <div className="text-white/35 text-[10px] uppercase tracking-widest font-medium mb-0.5">Alamat</div>
                   <div className="text-white/60 text-xs leading-relaxed">
-                    Bandara Soekarno–Hatta,<br />
+                    Gedung Gatrans, Bandara Soekarno–Hatta,<br />
                     Komplek Terminal Kargo,<br />
                     Jl. Cengkareng Golf Club RT.001/RW.010,<br />
                     Pajang, Kec. Benda,<br />

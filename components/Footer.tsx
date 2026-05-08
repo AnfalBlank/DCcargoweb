@@ -202,7 +202,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="py-5 border-t border-white/8 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-white/30 text-xs text-center sm:text-left">
-            © 2026 PT. Ditama DC Solution. All rights reserved.
+            © 2026 PT. Ditama Cargo Solution. All rights reserved.
           </p>
           <motion.button
             whileHover={{ scale: 1.1, y: -2 }}

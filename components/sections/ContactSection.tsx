@@ -12,7 +12,7 @@ import {
   MessageCircle,
   Instagram,
   Facebook,
-  Twitter,
+  Youtube,
   CheckCircle,
 } from "lucide-react";
 
@@ -179,18 +179,21 @@ export default function ContactSection() {
               <div className="text-slate-600 text-sm mb-3">Ikuti Kami di Media Sosial</div>
               <div className="flex gap-3">
                 {[
-                  { icon: Instagram, label: "Instagram", color: "hover:bg-pink-50 hover:border-pink-200 hover:text-pink-500" },
-                  { icon: Facebook, label: "Facebook", color: "hover:bg-blue-50 hover:border-blue-200 hover:text-blue-500" },
-                  { icon: Twitter, label: "Twitter", color: "hover:bg-sky-50 hover:border-sky-200 hover:text-sky-500" },
+                  { icon: Instagram, label: "Instagram", href: "https://www.instagram.com/ditamacargo/",                                                          color: "hover:bg-pink-50 hover:border-pink-200 hover:text-pink-500" },
+                  { icon: Facebook,  label: "Facebook",  href: "https://web.facebook.com/ditama.cargo.solution.2024/",                                            color: "hover:bg-blue-50 hover:border-blue-200 hover:text-blue-500" },
+                  { icon: Youtube,   label: "YouTube",   href: "https://www.youtube.com/playlist?list=PLYK6HLyTSHFE-jXfUyJW77j8lIyQCxGZy", color: "hover:bg-red-50 hover:border-red-200 hover:text-red-500" },
                 ].map((social) => (
-                  <motion.button
+                  <motion.a
                     key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     className={`w-10 h-10 rounded-xl bg-slate-50 border border-slate-200 flex items-center justify-center transition-all duration-300 text-slate-500 ${social.color}`}
                   >
                     <social.icon className="w-5 h-5" />
-                  </motion.button>
+                  </motion.a>
                 ))}
               </div>
             </motion.div>

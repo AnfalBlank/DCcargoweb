@@ -153,20 +153,23 @@ export default function Footer() {
             {/* Social icons */}
             <div className="flex gap-2">
               {[
-                { Icon: Instagram, label: "Instagram" },
-                { Icon: Facebook,  label: "Facebook" },
-                { Icon: Twitter,   label: "Twitter" },
-                { Icon: Youtube,   label: "YouTube" },
-              ].map(({ Icon, label }) => (
-                <motion.button
+                { Icon: Instagram, label: "Instagram", href: "https://www.instagram.com/ditamacargo/" },
+                { Icon: Facebook,  label: "Facebook",  href: "https://web.facebook.com/ditama.cargo.solution.2024/" },
+                { Icon: Twitter,   label: "Twitter",   href: "#" },
+                { Icon: Youtube,   label: "YouTube",   href: "https://www.youtube.com/playlist?list=PLYK6HLyTSHFE-jXfUyJW77j8lIyQCxGZy" },
+              ].map(({ Icon, label, href }) => (
+                <motion.a
                   key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   whileHover={{ scale: 1.12, y: -2 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label={label}
                   className="w-9 h-9 rounded-xl bg-white/8 border border-white/10 flex items-center justify-center hover:bg-white/15 hover:border-white/25 transition-all duration-200"
                 >
                   <Icon className="w-4 h-4 text-white/50" />
-                </motion.button>
+                </motion.a>
               ))}
             </div>
           </div>

@@ -11,7 +11,6 @@ const footerLinks = {
     { label: "Cargo Laut",        href: "/services" },
     { label: "Cargo Udara",       href: "/services" },
     { label: "Same Day Delivery", href: "/services" },
-    { label: "Pengiriman Express",  href: "/services" },
     { label: "Warehouse Service", href: "/services" },
     { label: "Door to Door",      href: "/services" },
   ],

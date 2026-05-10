@@ -14,7 +14,7 @@ const homeFAQs = [
     waText: "Halo DC Solution, saya ingin tahu lebih lanjut tentang layanan yang tersedia. Bisa jelaskan?",
   },
   {
-    q: "Bagaimana cara mulai menggunakan layanan DC Cargo?",
+    q: "Bagaimana cara mulai menggunakan layanan DC Solution?",
     a: "Sangat mudah! Hubungi kami via WhatsApp di +62 852-1117-2494, ceritakan kebutuhan pengiriman Anda (asal, tujuan, jenis barang, berat), dan tim kami akan memberikan penawaran terbaik dalam hitungan menit.",
     waText: "Halo DC Solution, saya ingin mulai menggunakan layanan pengiriman. Bagaimana caranya?",
   },

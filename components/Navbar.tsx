@@ -52,11 +52,11 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0">
             <motion.div whileHover={{ scale: 1.04 }} className="flex items-center gap-2.5">
               <Image src="/logo.png" alt="DC Solution" width={52} height={52} className="object-contain" priority />
-              {/* Desktop: DITAMA CARGO SOLUTION */}
+              {/* Desktop: PT. DITAMA CARGO SOLUTION */}
               <div className="hidden sm:block">
                 <div className={`font-sora font-black text-base leading-none transition-colors duration-300 ${
                   scrolled || !isHeroPage ? "text-brand-navy" : "text-white"
-                }`}>DITAMA</div>
+                }`}>PT. DITAMA</div>
                 <div className={`font-sora font-bold text-sm leading-none mt-0.5 transition-colors duration-300 ${
                   scrolled || !isHeroPage ? "text-brand-red" : "text-red-300"
                 }`}>

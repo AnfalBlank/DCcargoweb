@@ -43,7 +43,7 @@ export default function AboutSection() {
             <span className="text-brand-red">Ditama Cargo?</span>
           </h2>
           <p className="text-slate-600 text-lg max-w-3xl mx-auto leading-relaxed">
-            Ditama Cargo Solution hadir sebagai solusi pengiriman cargo express yang cepat, aman, dan terpercaya untuk kebutuhan bisnis maupun personal di seluruh Indonesia.
+            Ditama Cargo Solution hadir sebagai solusi pengiriman cargo yang cepat, aman, dan terpercaya untuk kebutuhan bisnis maupun personal di seluruh Indonesia.
           </p>
         </motion.div>
 
@@ -53,7 +53,7 @@ export default function AboutSection() {
             {
               icon: Eye,
               title: "Visi",
-              content: "Menjadi perusahaan logistik cargo express terdepan di Indonesia yang dikenal atas kecepatan, keamanan, dan inovasi teknologi dalam setiap layanan pengiriman.",
+              content: "Menjadi perusahaan logistik cargo terdepan di Indonesia yang dikenal atas kecepatan, keamanan, dan inovasi teknologi dalam setiap layanan pengiriman.",
               borderColor: "border-l-brand-red",
               iconBg: "bg-red-50",
               iconColor: "text-brand-red",

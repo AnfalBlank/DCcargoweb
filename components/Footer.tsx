@@ -90,7 +90,7 @@ export default function Footer() {
 
             {/* Tagline */}
             <p className="text-white/50 text-sm leading-relaxed mb-7 max-w-sm">
-              Solusi pengiriman cargo express modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.
+              Solusi pengiriman cargo modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.
             </p>
 
             {/* Contact info */}

@@ -83,7 +83,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.65 }}
             className="text-white/60 text-sm leading-relaxed max-w-xs"
           >
-            Solusi cargo express{" "}
+            Solusi cargo{" "}
             <span className="text-red-300 font-semibold">cepat</span>,{" "}
             <span className="text-red-300 font-semibold">aman</span>, dan{" "}
             <span className="text-red-300 font-semibold">terpercaya</span>{" "}
@@ -161,7 +161,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.3 }}
               className="text-white/60 text-lg leading-relaxed mb-9 max-w-lg"
             >
-              Solusi pengiriman cargo express modern yang{" "}
+              Solusi pengiriman cargo modern yang{" "}
               <span className="text-red-300 font-semibold">cepat</span>,{" "}
               <span className="text-red-300 font-semibold">aman</span>, dan{" "}
               <span className="text-red-300 font-semibold">terpercaya</span>{" "}

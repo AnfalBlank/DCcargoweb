@@ -10,7 +10,7 @@ import Footer from "@/components/Footer";
 const homeFAQs = [
   {
     q: "Apa itu DC Solution dan layanan apa yang ditawarkan?",
-    a: "DC Solution (Ditama Cargo) adalah perusahaan jasa pengiriman cargo express yang melayani pengiriman darat, laut, dan udara ke seluruh Indonesia. Kami juga menyediakan layanan Same Day Delivery, Express Delivery, Warehouse, dan Door to Door.",
+    a: "DC Solution (Ditama Cargo) adalah perusahaan jasa pengiriman cargo yang melayani pengiriman darat, laut, dan udara ke seluruh Indonesia. Kami juga menyediakan layanan Same Day Delivery, Warehouse, dan Door to Door.",
     waText: "Halo DC Solution, saya ingin tahu lebih lanjut tentang layanan yang tersedia. Bisa jelaskan?",
   },
   {

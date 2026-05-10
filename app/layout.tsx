@@ -6,7 +6,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export const metadata: Metadata = {
   title: "Ditama Cargo Solution - We Deliver Your Happiness",
-  description: "Ditama Cargo Solution adalah solusi pengiriman cargo express modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.",
+  description: "Ditama Cargo Solution adalah solusi pengiriman cargo modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.",
   keywords: "jasa cargo express, pengiriman cargo terpercaya, cargo seluruh indonesia, jasa pengiriman cepat, cargo murah terpercaya",
   icons: {
     icon: "/logo.png",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Ditama Cargo Solution - We Deliver Your Happiness",
-    description: "Solusi pengiriman cargo express modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.",
+    description: "Solusi pengiriman cargo modern yang cepat, aman, dan terpercaya untuk seluruh Indonesia.",
     type: "website",
     locale: "id_ID",
   },

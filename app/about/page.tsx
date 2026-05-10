@@ -7,7 +7,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Tentang Kami - Ditama Cargo Solution",
-  description: "Kenali lebih dekat Ditama Cargo Solution, perusahaan logistik cargo express terpercaya di Indonesia.",
+  description: "Kenali lebih dekat Ditama Cargo Solution, perusahaan logistik cargo terpercaya di Indonesia.",
 };
 
 const aboutFAQs = [

@@ -93,7 +93,7 @@ export default function ContactSection() {
       iconColor: "text-brand-blue",
       iconBg: "bg-blue-50",
       borderColor: "border-blue-100",
-      href: "https://maps.google.com/?q=Terminal+Kargo+Bandara+Soekarno+Hatta+Tangerang",
+      href: "https://www.google.com/maps?q=GEDUNG+PT+GATRANS,+Bandar+Udara+Internasional+Soekarno%E2%80%93Hatta,+Komplek+Terminal+Kargo+Jl.+Cengkareng+Golf+Club,+RT.001/RW.010,+Pajang,+Kec.+Benda,+Kota+Tangerang,+Banten+15126&ftid=0x2e6a036700943607:0xb4debe87ebce550c",
     },
     {
       icon: Clock,
@@ -337,7 +337,7 @@ export default function ContactSection() {
                 Kec. Benda, Kota Tangerang, Banten 15126
               </div>
               <motion.a
-                href="https://maps.google.com/?q=Terminal+Kargo+Bandara+Soekarno+Hatta+Tangerang+Banten"
+                href="https://www.google.com/maps?q=GEDUNG+PT+GATRANS,+Bandar+Udara+Internasional+Soekarno%E2%80%93Hatta,+Komplek+Terminal+Kargo+Jl.+Cengkareng+Golf+Club,+RT.001/RW.010,+Pajang,+Kec.+Benda,+Kota+Tangerang,+Banten+15126&ftid=0x2e6a036700943607:0xb4debe87ebce550c"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}

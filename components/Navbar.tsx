@@ -63,17 +63,17 @@ export default function Navbar() {
                   CARGO SOLUTION
                 </div>
               </div>
-              {/* Mobile: DITAMA CARGO SOLUTION */}
+              {/* Mobile: PT. DITAMA CARGO SOLUTION */}
               <div className="sm:hidden">
                 <motion.div
                   initial={{ opacity: 0, x: -8 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                  <div className={`font-sora font-black text-[11px] leading-tight transition-colors duration-300 ${
+                  <div className={`font-sora font-black text-[10px] leading-tight transition-colors duration-300 ${
                     scrolled || !isHeroPage ? "text-brand-navy" : "text-white"
                   }`}>
-                    DITAMA
+                    PT. DITAMA
                   </div>
                   <div className={`font-sora font-bold text-[10px] leading-tight transition-colors duration-300 ${
                     scrolled || !isHeroPage ? "text-brand-red" : "text-red-300"

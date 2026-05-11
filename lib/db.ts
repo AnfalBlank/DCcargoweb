@@ -81,12 +81,23 @@ export async function createPost(data: Omit<BlogPost, "id" | "created_at" | "upd
 }
 
 export async function updatePost(id: number, data: Partial<BlogPost>) {
+  const args: (string | number | null)[] = [
+    data.title ?? null,
+    data.excerpt ?? null,
+    data.content ?? null,
+    data.category ?? null,
+    data.image ?? null,
+    JSON.stringify(data.tags ?? []),
+    data.date ?? null,
+    data.read_time ?? null,
+    data.featured ? 1 : 0,
+    data.published ? 1 : 0,
+    id,
+  ];
   await db.execute({
     sql: `UPDATE blog_posts SET title=?,excerpt=?,content=?,category=?,image=?,tags=?,
           date=?,read_time=?,featured=?,published=?,updated_at=datetime('now') WHERE id=?`,
-    args: [data.title, data.excerpt, data.content, data.category,
-           data.image, JSON.stringify(data.tags), data.date,
-           data.read_time, data.featured ? 1 : 0, data.published ? 1 : 0, id],
+    args,
   });
 }
 
@@ -118,11 +129,19 @@ export async function createFAQ(data: Omit<FAQItem, "id" | "created_at" | "updat
 }
 
 export async function updateFAQ(id: number, data: Partial<FAQItem>) {
+  const args: (string | number | null)[] = [
+    data.page ?? null,
+    data.question ?? null,
+    data.answer ?? null,
+    data.wa_text ?? null,
+    data.sort_order ?? 0,
+    data.published ? 1 : 0,
+    id,
+  ];
   await db.execute({
     sql: `UPDATE faq_items SET page=?,question=?,answer=?,wa_text=?,sort_order=?,
           published=?,updated_at=datetime('now') WHERE id=?`,
-    args: [data.page, data.question, data.answer, data.wa_text,
-           data.sort_order, data.published ? 1 : 0, id],
+    args,
   });
 }
 

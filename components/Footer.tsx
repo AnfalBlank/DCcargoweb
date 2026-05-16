@@ -120,14 +120,14 @@ export default function Footer() {
               </a>
 
               {/* Email */}
-              <a href="mailto:adminDCS16@gmail.com"
+              <a href="mailto:admin@ditamacargosolution.web.id"
                 className="flex items-start gap-3 group">
                 <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center flex-shrink-0 mt-0.5 group-hover:bg-white/20 transition-colors">
                   <Mail className="w-4 h-4 text-white/60" />
                 </div>
                 <div>
                   <div className="text-white/35 text-[10px] uppercase tracking-widest font-medium">Email</div>
-                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">adminDCS16@gmail.com</div>
+                  <div className="text-white/75 text-sm group-hover:text-white transition-colors">admin@ditamacargosolution.web.id</div>
                 </div>
               </a>
 

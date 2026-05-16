@@ -38,7 +38,7 @@ const SEED_CONFIG = [
   ["site_tagline", "WE DELIVER YOUR HAPPINESS"],
   ["wa_cs", "+62 852-1117-2494"],
   ["wa_admin", "+62 821-7798-1028"],
-  ["email", "adminDCS16@gmail.com"],
+  ["email", "admin@ditamacargosolution.web.id"],
   ["address", "Gedung Gatrans, Bandara Soekarno–Hatta, Komplek Terminal Kargo, Jl. Cengkareng Golf Club RT.001/RW.010, Pajang, Kec. Benda, Kota Tangerang, Banten 15126"],
   ["instagram", "https://www.instagram.com/ditamacargo/"],
   ["facebook", "https://web.facebook.com/ditama.cargo.solution.2024/"],

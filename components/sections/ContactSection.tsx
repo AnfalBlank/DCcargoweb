@@ -78,12 +78,12 @@ export default function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "adminDCS16@gmail.com",
+      value: "admin@ditamacargosolution.web.id",
       sub: "Respon dalam 1x24 jam",
       iconColor: "text-brand-red",
       iconBg: "bg-red-50",
       borderColor: "border-red-100",
-      href: "mailto:adminDCS16@gmail.com",
+      href: "mailto:admin@ditamacargosolution.web.id",
     },
     {
       icon: MapPin,
